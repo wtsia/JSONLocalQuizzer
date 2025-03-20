@@ -1,0 +1,1435 @@
+{
+    "questions": [
+      {
+        "question": "What is the core purpose of the Spring Framework?",
+        "correctAnswer": "To provide infrastructure support so developers can focus on application-level business logic.",
+        "incorrectAnswers": [
+          "To replace all Java standard libraries with proprietary alternatives",
+          "To exclusively manage database migrations and versioning",
+          "To design only front-end user interfaces in HTML"
+        ],
+        "explanation": "Spring manages common infrastructure tasks (object creation, configuration, etc.) so developers can concentrate on writing business logic."
+      },
+      {
+        "question": "Which principle lies at the heart of the Spring Core container?",
+        "correctAnswer": "Inversion of Control (IoC), shifting object creation and lifecycle to the container instead of the application code.",
+        "incorrectAnswers": [
+          "Hard-coding all dependencies in each class for better control",
+          "Executing all business logic in static classes only",
+          "Connecting each application module directly without any container"
+        ],
+        "explanation": "IoC gives the container responsibility for creating and wiring objects (beans), reducing tight coupling."
+      },
+      {
+        "question": "What is an advantage of using plain old Java objects (POJOs) in Spring?",
+        "correctAnswer": "They allow enterprise services to be applied non-invasively, without forcing your code to extend a specific framework class.",
+        "incorrectAnswers": [
+          "They cannot be instantiated outside of a Java EE server",
+          "They must be written in a special DSL language",
+          "They can’t be used unless all dependencies are global static methods"
+        ],
+        "explanation": "With POJOs, you avoid forcing your classes to inherit from framework-specific base classes or implement certain interfaces."
+      },
+      {
+        "question": "Why is it beneficial that the Spring container can be activated without any web server or application server?",
+        "correctAnswer": "It allows for lightweight testing and running of Spring applications in non-web contexts.",
+        "incorrectAnswers": [
+          "It immediately disables all network interfaces in an application",
+          "It forces you to only use XML configuration",
+          "It makes Spring code untestable without a dedicated app server"
+        ],
+        "explanation": "Spring’s lightweight container can run in standalone or console-based applications, not just server-based environments."
+      },
+      {
+        "question": "Which Spring module provides the IoC (Inversion of Control) container?",
+        "correctAnswer": "The Spring Core module.",
+        "incorrectAnswers": [
+          "Spring AOP module",
+          "Spring Data Access/Integration module",
+          "Spring Test module"
+        ],
+        "explanation": "The Spring Core module supplies the IoC container functionality, handling bean creation and lifecycle."
+      },
+      {
+        "question": "Why is understanding Spring Core important?",
+        "correctAnswer": "It’s crucial for effectively using the rest of the Spring Framework’s enterprise features.",
+        "incorrectAnswers": [
+          "It is rarely used in real projects",
+          "It only matters if you want to replace the Java Virtual Machine",
+          "It lets you bypass Java’s type-checking"
+        ],
+        "explanation": "Spring Core underpins DI/IoC, essential for building loosely coupled and maintainable Spring applications."
+      },
+      {
+        "question": "In Spring, what is the term for an object that is instantiated, assembled, and managed by the IoC container?",
+        "correctAnswer": "A bean.",
+        "incorrectAnswers": [
+          "A context wrapper",
+          "A front controller",
+          "A native instance"
+        ],
+        "explanation": "Beans are the fundamental objects within the Spring container, created and managed by IoC."
+      },
+      {
+        "question": "What is the key advantage of using a BeanFactory or ApplicationContext for IoC in Spring?",
+        "correctAnswer": "They instantiate, configure, and assemble object dependencies, preventing manual wiring in code.",
+        "incorrectAnswers": [
+          "They remove all constructor arguments from classes",
+          "They force code to store data in global static variables",
+          "They only allow final fields in all beans"
+        ],
+        "explanation": "The container handles object creation and dependency resolution, leaving your code free of manual setups."
+      },
+      {
+        "question": "What is Inversion of Control (IoC) aiming to achieve in software design?",
+        "correctAnswer": "Loose coupling by shifting object creation responsibilities from application code to a container.",
+        "incorrectAnswers": [
+          "Ensuring that every class has the same constructor signature",
+          "Restricting the use of interfaces in large codebases",
+          "Using only final variables for data storage"
+        ],
+        "explanation": "IoC decouples object creation from usage, making code more modular and testable."
+      },
+      {
+        "question": "Which is NOT an advantage of IoC?",
+        "correctAnswer": "It forces the developer to manually manage object lifecycles in each class.",
+        "incorrectAnswers": [
+          "It decouples task execution from specific implementations",
+          "It facilitates easy swapping between different implementations",
+          "It simplifies unit testing by isolating components"
+        ],
+        "explanation": "IoC container manages lifecycles automatically; you do not manually manage object creation in each class."
+      },
+      {
+        "question": "What does the org.springframework.beans.factory.BeanFactory interface do in Spring?",
+        "correctAnswer": "It is the actual IoC container responsible for bean instantiation and wiring.",
+        "incorrectAnswers": [
+          "It is an IDE plugin for code formatting",
+          "It is a remote server to store compiled beans",
+          "It only manages scanning for environment variables"
+        ],
+        "explanation": "BeanFactory is the core container interface that creates and configures objects and their dependencies."
+      },
+      {
+        "question": "How is the ApplicationContext different from a BeanFactory in Spring?",
+        "correctAnswer": "ApplicationContext provides extra features such as AOP integration, message handling, and event propagation on top of BeanFactory.",
+        "incorrectAnswers": [
+          "ApplicationContext requires a web server to run",
+          "ApplicationContext cannot handle multiple beans at once",
+          "ApplicationContext is slower and lacks advanced integration features"
+        ],
+        "explanation": "While BeanFactory is the foundational container, ApplicationContext adds advanced features like easier AOP and event support."
+      },
+      {
+        "question": "What is the object known as that holds metadata about a bean’s class, scope, and other configuration details?",
+        "correctAnswer": "A BeanDefinition.",
+        "incorrectAnswers": [
+          "A BeanLifecycle",
+          "A BeanManifest",
+          "A BeanAlias"
+        ],
+        "explanation": "The BeanDefinition object contains metadata (class, scope, etc.) for bean creation within the container."
+      },
+      {
+        "question": "What are the three ways you can initialize a Spring IoC container?",
+        "correctAnswer": "Using BeanFactory, ApplicationContext, or specialized container classes like ClassPathXmlApplicationContext.",
+        "incorrectAnswers": [
+          "Using only Java’s reflection with no libraries",
+          "Using Jenkins pipelines or Gradle tasks exclusively",
+          "Using random shell scripts that replace all dependencies"
+        ],
+        "explanation": "Developers can choose XML-based, annotation-based, or other container instantiation approaches (BeanFactory, ApplicationContext, etc.)."
+      },
+      {
+        "question": "Which best defines ‘Dependency Injection’ in Spring?",
+        "correctAnswer": "Injecting required object references into other objects at runtime, reducing direct instantiation.",
+        "incorrectAnswers": [
+          "Requiring every method to throw a checked exception",
+          "Copying all object code into a single monolithic class",
+          "Running code only if all dependencies are global singletons"
+        ],
+        "explanation": "DI is a pattern in which external dependencies are provided rather than created by the consumer object, decoupling classes."
+      },
+      {
+        "question": "What is the main difference between IoC and DI?",
+        "correctAnswer": "IoC is the broader principle of control inversion, while DI is a concrete implementation of IoC for object dependencies.",
+        "incorrectAnswers": [
+          "IoC is only for logging, DI is only for concurrency management",
+          "They are synonyms, with no subtle differences",
+          "DI requires a custom JVM, while IoC does not"
+        ],
+        "explanation": "IoC inverts the control of object creation; DI is a mechanism to implement that inversion in code."
+      },
+      {
+        "question": "Which of the following is NOT a type of Dependency Injection in Spring?",
+        "correctAnswer": "Abstract Class Injection",
+        "incorrectAnswers": [
+          "Constructor Injection",
+          "Setter Injection",
+          "Field Injection"
+        ],
+        "explanation": "Spring DI is typically done via constructors, setters, or fields. “Abstract Class Injection” is not a recognized pattern."
+      },
+      {
+        "question": "What is Constructor Injection in Spring?",
+        "correctAnswer": "When a class receives its dependencies through its constructor parameters upon instantiation.",
+        "incorrectAnswers": [
+          "When a class is compiled into the constructor of another class at runtime",
+          "When a class has no constructors and only uses static fields",
+          "When a class is forced to implement an interface for injection"
+        ],
+        "explanation": "Constructor Injection passes dependencies at object creation via constructor parameters."
+      },
+      {
+        "question": "Which is a disadvantage of Setter Injection?",
+        "correctAnswer": "The object is not guaranteed to be fully initialized if dependencies are not set, potentially causing a partial state.",
+        "incorrectAnswers": [
+          "It can never change dependencies after construction",
+          "It disallows optional dependencies",
+          "It permanently locks the bean scope to prototype"
+        ],
+        "explanation": "With Setter Injection, dependencies might be set after object creation, risking incomplete initialization if a setter is never called."
+      },
+      {
+        "question": "Which statement about Field Injection is true?",
+        "correctAnswer": "It can reduce boilerplate but breaks encapsulation and can be harder to test.",
+        "incorrectAnswers": [
+          "It is mandatory for all Spring beans",
+          "It is the only approach to set mandatory dependencies",
+          "It automatically implements final fields without error"
+        ],
+        "explanation": "Field Injection is convenient but can complicate testing and violate encapsulation, since fields are set via reflection."
+      },
+      {
+        "question": "Which is typically the recommended DI approach in Spring for mandatory dependencies and immutability?",
+        "correctAnswer": "Constructor Injection.",
+        "incorrectAnswers": [
+          "Field Injection for all dependencies always",
+          "Setter Injection exclusively",
+          "No injection; use new in every method call"
+        ],
+        "explanation": "Constructor Injection is recommended for mandatory dependencies, helping with immutability and testability."
+      },
+      {
+        "question": "Which is a benefit of using XML-based configuration for dependency injection in Spring?",
+        "correctAnswer": "Clear, centralized bean definitions that can be shared and easily changed without recompiling.",
+        "incorrectAnswers": [
+          "It forces all classes to be final",
+          "It eliminates the need for constructors in Java classes",
+          "It only works for legacy Java 1.3 environments"
+        ],
+        "explanation": "XML-based config can be swapped in or out, allowing reconfiguration of beans without recompiling code."
+      },
+      {
+        "question": "How do you specify constructor-based DI in an XML configuration?",
+        "correctAnswer": "Using <constructor-arg> elements inside the <bean> definition to refer to the dependencies.",
+        "incorrectAnswers": [
+          "Annotating the bean class with @XmlDependency in code",
+          "Calling the bean’s set methods directly in the XML file",
+          "Inserting your dependencies in a hidden file named dependencies.xml"
+        ],
+        "explanation": "In XML, <constructor-arg> tags define the constructor arguments for the bean."
+      },
+      {
+        "question": "What is Java-based configuration in Spring?",
+        "correctAnswer": "Defining beans and dependencies using @Configuration classes and @Bean methods in Java code.",
+        "incorrectAnswers": [
+          "Embedding all XML content in Java string literals",
+          "Installing custom JDK modifications to parse @JavaBeanAnno",
+          "Rewriting the entire project in Kotlin scripts"
+        ],
+        "explanation": "Java-based config uses @Configuration and @Bean annotations to wire up beans in pure Java."
+      },
+      {
+        "question": "What annotation in Spring marks a class as a source of bean definitions in Java configuration?",
+        "correctAnswer": "@Configuration",
+        "incorrectAnswers": [
+          "@SpringBean",
+          "@InjectResource",
+          "@BeanFactoryClass"
+        ],
+        "explanation": "@Configuration classes can hold methods annotated with @Bean, returning bean instances."
+      },
+      {
+        "question": "Which annotation in Spring is a shorthand for @Controller, @ResponseBody combined?",
+        "correctAnswer": "@RestController",
+        "incorrectAnswers": [
+          "@RepositoryRest",
+          "@BeanController",
+          "@ControllerAndBody"
+        ],
+        "explanation": "@RestController implies the controller’s methods return data directly as the response body."
+      },
+      {
+        "question": "Which of the following are specializations of @Component in Spring?",
+        "correctAnswer": "@Service, @Repository, and @Controller.",
+        "incorrectAnswers": [
+          "@Autowired, @Inject, and @Bean",
+          "@ImportResource, @SpringBootApplication, and @EnableAutoConfiguration",
+          "@RunWith, @MockBean, and @Configuration"
+        ],
+        "explanation": "@Service, @Repository, and @Controller are stereotyping annotations that also serve as Spring-managed components."
+      },
+      {
+        "question": "What does the @ComponentScan annotation do in Spring?",
+        "correctAnswer": "Instructs Spring to scan specified packages for components or beans annotated with stereotypes.",
+        "incorrectAnswers": [
+          "Disables scanning of any annotations in the entire codebase",
+          "Only loads environment variables from system properties",
+          "Forces all components to share the same scope"
+        ],
+        "explanation": "@ComponentScan automatically detects and registers beans annotated with @Component (and specializations) in given packages."
+      },
+      {
+        "question": "Which statement about stereotype annotations (like @Controller, @Service) is correct?",
+        "correctAnswer": "They mark classes so Spring can automatically detect them as beans via component scanning.",
+        "incorrectAnswers": [
+          "They forcibly rename the class at runtime",
+          "They only apply to abstract classes with final methods",
+          "They are required to compile a Spring application"
+        ],
+        "explanation": "These annotations let Spring know which classes are beans, automatically discovered with @ComponentScan."
+      },
+      {
+        "question": "What does a Spring ‘bean definition’ typically specify?",
+        "correctAnswer": "Bean’s class, scope, initialization method, properties, and dependencies.",
+        "incorrectAnswers": [
+          "All the HTML templates for front-end usage",
+          "A global pointer to the OS kernel’s resources",
+          "Only the constructors with no arguments"
+        ],
+        "explanation": "A bean definition includes info about class name, scope, property values, init/destroy methods, etc."
+      },
+      {
+        "question": "How can you define multiple aliases for a single bean in XML?",
+        "correctAnswer": "Use the 'name' attribute in the <bean> tag or <alias> tags referencing the same bean.",
+        "incorrectAnswers": [
+          "Use the @BeanAlias annotation in Java code",
+          "By specifying each alias in a separate .properties file",
+          "You cannot define multiple aliases for one bean"
+        ],
+        "explanation": "You can provide multiple comma-separated names in the ‘name’ attribute, or <alias> with from/to references."
+      },
+      {
+        "question": "What is the purpose of a custom init method in a Spring bean lifecycle?",
+        "correctAnswer": "To execute specific initialization logic after dependencies are injected but before the bean is used.",
+        "incorrectAnswers": [
+          "To force every bean to become a prototype scope",
+          "To automatically rename the bean in the container",
+          "To override the container’s dependency injection rules"
+        ],
+        "explanation": "The init method is a callback for logic that must run after bean creation and wiring."
+      },
+      {
+        "question": "Which step happens last in the Spring bean lifecycle?",
+        "correctAnswer": "Custom destroy method execution, right before the container is fully shut down.",
+        "incorrectAnswers": [
+          "The container re-initializes all beans from scratch",
+          "Bean receives a final partial injection override",
+          "The container moves all beans to the stack memory"
+        ],
+        "explanation": "Destroy methods let the bean close resources or clean up just before container shutdown."
+      },
+      {
+        "question": "What does the 'singleton' scope for a bean mean in Spring?",
+        "correctAnswer": "The container creates only one instance of that bean per ApplicationContext.",
+        "incorrectAnswers": [
+          "Each HTTP request triggers a new bean instance",
+          "The bean must be final and cannot be changed at runtime",
+          "It uses reflection to copy the bean for every injection"
+        ],
+        "explanation": "Singleton is the default scope, reusing the same bean instance from the container for all requests."
+      },
+      {
+        "question": "Which scope in Spring returns a new bean instance every time it is requested from the container?",
+        "correctAnswer": "Prototype scope.",
+        "incorrectAnswers": [
+          "Session scope",
+          "Request scope",
+          "Singleton scope"
+        ],
+        "explanation": "Prototype beans are created anew each time they’re requested, no caching in the container."
+      },
+      {
+        "question": "What is a typical use case for the prototype scope?",
+        "correctAnswer": "When you need a new, distinct bean instance each time, such as stateful or per-operation objects.",
+        "incorrectAnswers": [
+          "When you want to prevent any dynamic creation of objects",
+          "When you want a single instance shared among all threads forever",
+          "When you must store data in a global environment variable"
+        ],
+        "explanation": "Prototype scope is helpful if the bean holds state or must be unique per usage."
+      },
+      {
+        "question": "What does Lombok primarily do for Java classes?",
+        "correctAnswer": "Generates boilerplate methods like getters, setters, constructors, equals, and hashCode.",
+        "incorrectAnswers": [
+          "It automatically compiles the code into native binaries",
+          "It replaces the JVM’s garbage collector with a custom approach",
+          "It removes the need for any variables in the code"
+        ],
+        "explanation": "Lombok uses annotations to create common Java methods, reducing repetitive code."
+      },
+      {
+        "question": "Which Lombok annotation automatically generates getters and setters for all fields in a class?",
+        "correctAnswer": "@Data",
+        "incorrectAnswers": [
+          "@SyncMethod",
+          "@BeanFields",
+          "@AutoWire"
+        ],
+        "explanation": "@Data is a shortcut that includes @Getter, @Setter, @RequiredArgsConstructor, @EqualsAndHashCode, and @ToString."
+      },
+      {
+        "question": "Which feature does Lombok’s @Cleanup annotation provide?",
+        "correctAnswer": "It automatically calls close() on the resource once the variable goes out of scope.",
+        "incorrectAnswers": [
+          "It forces all fields to default to zero or null",
+          "It merges all fields into a single JSON string",
+          "It kills the JVM after any method call finishes"
+        ],
+        "explanation": "@Cleanup helps manage resources by calling close() or a chosen method at the end of scope."
+      },
+      {
+        "question": "What does Spring Boot mainly provide over traditional Spring?",
+        "correctAnswer": "Opinionated auto-configuration and embedded server support to simplify starting new Spring applications.",
+        "incorrectAnswers": [
+          "A mandatory requirement to only use XML for bean definitions",
+          "A replacement for the Java language with a custom syntax",
+          "It disallows integration with any non-Java language"
+        ],
+        "explanation": "Spring Boot reduces configuration overhead by auto-configuring many typical Spring setups and providing embedded servers."
+      },
+      {
+        "question": "What is a key advantage of using Spring Boot’s auto-configuration?",
+        "correctAnswer": "It automatically configures beans based on classpath dependencies, reducing manual setup.",
+        "incorrectAnswers": [
+          "It replaces your business logic with random library calls",
+          "It prevents you from customizing any aspect of your application",
+          "It only works if you use annotation-based configuration"
+        ],
+        "explanation": "Spring Boot scans your classpath and environment to configure common beans automatically."
+      },
+      {
+        "question": "Which annotation in Spring Boot typically includes @EnableAutoConfiguration, @ComponentScan, and @Configuration?",
+        "correctAnswer": "@SpringBootApplication",
+        "incorrectAnswers": [
+          "@EnableAllFeatures",
+          "@BootScanAuto",
+          "@SpringRunner"
+        ],
+        "explanation": "@SpringBootApplication is a meta-annotation that combines these core annotations for convenience."
+      },
+      {
+        "question": "What is Spring Initializr?",
+        "correctAnswer": "A web-based tool to generate a Spring Boot project structure with chosen dependencies and build system.",
+        "incorrectAnswers": [
+          "A code obfuscation library for advanced Java encryption",
+          "A tool that modifies the OS kernel to run Spring faster",
+          "A command-line compiler for converting XML to Java classes"
+        ],
+        "explanation": "Spring Initializr helps you quickly bootstrap a new Spring Boot project with user-selected dependencies."
+      },
+      {
+        "question": "Which problem do Spring Boot starters aim to solve?",
+        "correctAnswer": "They provide pre-configured dependencies for common scenarios, avoiding tedious manual dependency management.",
+        "incorrectAnswers": [
+          "They block you from adding any new dependencies not included in the starter",
+          "They rename all your classes to 'StarterClass' at runtime",
+          "They only support command-line applications with no network access"
+        ],
+        "explanation": "Starters bundle typical libraries for tasks like web, JPA, or security, simplifying setup."
+      },
+      {
+        "question": "Which built-in Spring Boot starter would you add to build a web application with embedded Tomcat?",
+        "correctAnswer": "spring-boot-starter-web",
+        "incorrectAnswers": [
+          "spring-boot-starter-ldap",
+          "spring-boot-starter-console",
+          "spring-boot-starter-rsocket-only"
+        ],
+        "explanation": "spring-boot-starter-web includes Spring MVC, an embedded server (Tomcat/Jetty), JSON support, etc."
+      },
+      {
+        "question": "Which architectural pattern does Spring MVC follow?",
+        "correctAnswer": "Model-View-Controller (MVC), separating data, presentation, and control logic.",
+        "incorrectAnswers": [
+          "Peer-to-Peer architecture with no controllers",
+          "Recursive object references for infinite loops",
+          "Machine Learning pipeline built into the JVM"
+        ],
+        "explanation": "Spring MVC is the web framework implementing the standard MVC pattern for request handling."
+      },
+      {
+        "question": "What is the DispatcherServlet in Spring MVC?",
+        "correctAnswer": "A Front Controller that receives all HTTP requests and routes them to appropriate controllers.",
+        "incorrectAnswers": [
+          "A pure database connection manager used only by JPA",
+          "A class that forcibly changes the scope of all beans to session",
+          "An annotation used to mark a method as read-only"
+        ],
+        "explanation": "DispatcherServlet is the central servlet that orchestrates request handling in Spring MVC."
+      },
+      {
+        "question": "What is the advantage of using Spring Boot DevTools?",
+        "correctAnswer": "It enables automatic restarts and live reload, accelerating development and testing.",
+        "incorrectAnswers": [
+          "It removes the need for a main method in your application",
+          "It compiles your application into a different language at runtime",
+          "It disallows debugging in IDEs"
+        ],
+        "explanation": "DevTools detects code changes, restarts the context, or triggers browser reload, speeding developer feedback cycles."
+      },
+      {
+        "question": "How do Spring Environments help externalize configuration?",
+        "correctAnswer": "By allowing properties from files, environment variables, or command-line arguments, decoupling them from code.",
+        "incorrectAnswers": [
+          "By forcing all properties to be compiled into .class files",
+          "By requiring a proprietary OS kernel patch for each environment",
+          "By disabling any external configuration so only defaults apply"
+        ],
+        "explanation": "Spring Environments load config from multiple sources, letting you adapt to dev, test, prod environments easily."
+      },
+      {
+        "question": "Which annotation is used to inject a value from properties into a Spring component’s field?",
+        "correctAnswer": "@Value",
+        "incorrectAnswers": [
+          "@Autowired",
+          "@AutoMap",
+          "@ConfigProperty"
+        ],
+        "explanation": "@Value(\"${property.name}\") injects the property’s value into your class fields/method parameters."
+      },
+      {
+        "question": "What does @Controller in Spring typically indicate?",
+        "correctAnswer": "That the class is a web controller used by Spring MVC to handle requests and return views.",
+        "incorrectAnswers": [
+          "That the class will only run on a command-line environment",
+          "That it is the main method for launching the application",
+          "That the class cannot handle any user requests"
+        ],
+        "explanation": "@Controller marks a class as an MVC controller, discovered via component scanning, receiving HTTP requests."
+      },
+      {
+        "question": "What does the @RequestMapping annotation do?",
+        "correctAnswer": "Maps specific HTTP requests to particular controller methods or classes.",
+        "incorrectAnswers": [
+          "Restricts the bean scope to only handle GET requests",
+          "Generates random endpoints for security",
+          "Deletes all session data upon invocation"
+        ],
+        "explanation": "@RequestMapping indicates how the controller method or class should respond to incoming URLs and HTTP verbs."
+      },
+      {
+        "question": "Which Spring annotation indicates that the return value of a controller method is serialized directly into the response body?",
+        "correctAnswer": "@ResponseBody",
+        "incorrectAnswers": [
+          "@SessionScope",
+          "@WebFilter",
+          "@PathVariable"
+        ],
+        "explanation": "@ResponseBody instructs Spring to convert the return object to JSON/XML or similar, writing to the response."
+      },
+      {
+        "question": "If you want to handle a GET request specifically, which annotation can be used instead of @RequestMapping?",
+        "correctAnswer": "@GetMapping",
+        "incorrectAnswers": [
+          "@MappingGET",
+          "@RequestGet",
+          "@OperationType('GET')"
+        ],
+        "explanation": "@GetMapping is a convenience annotation that’s equivalent to @RequestMapping(method = RequestMethod.GET)."
+      },
+      {
+        "question": "When would you use @PathVariable instead of @RequestParam?",
+        "correctAnswer": "When the value is part of the URI path rather than in the query string.",
+        "incorrectAnswers": [
+          "When you want to store data in server memory indefinitely",
+          "When you need to force the controller to only accept JSON bodies",
+          "When you need to exclude the method from the container scanning"
+        ],
+        "explanation": "@PathVariable extracts data from the URL path segments, while @RequestParam handles query parameters."
+      },
+      {
+        "question": "What does @RequestBody do in a Spring MVC controller method?",
+        "correctAnswer": "Binds the HTTP request body to a method parameter, converting it (e.g., JSON) into a Java object.",
+        "incorrectAnswers": [
+          "Executes a background thread for synchronous logging",
+          "Prevents the method from returning any status code",
+          "Deletes the session if the body is null"
+        ],
+        "explanation": "@RequestBody indicates that the request body is deserialized into the method’s argument object, typically JSON->POJO."
+      },
+      {
+        "question": "How does ResponseEntity help in a Spring controller?",
+        "correctAnswer": "It allows setting custom HTTP status codes, headers, and body content for finer response control.",
+        "incorrectAnswers": [
+          "It forcibly logs all requests to the console",
+          "It merges multiple HTTP requests into one object",
+          "It disables the JSON converter in Spring"
+        ],
+        "explanation": "ResponseEntity is a wrapper for HTTP response, letting you specify headers, status codes, and the response body."
+      },
+      {
+        "question": "What does @ExceptionHandler do in a Spring controller?",
+        "correctAnswer": "Handles a specified exception type thrown in the controller, returning a custom response.",
+        "incorrectAnswers": [
+          "Only logs the exception without any effect on HTTP response",
+          "Completely stops the container from running on exception",
+          "Redirects to an external server for error handling"
+        ],
+        "explanation": "@ExceptionHandler lets you define methods to handle certain exceptions and shape the response as needed."
+      },
+      {
+        "question": "What does the @ResponseStatus annotation accomplish?",
+        "correctAnswer": "Specifies the HTTP status code to return if a particular exception or method is encountered.",
+        "incorrectAnswers": [
+          "Overwrites all other status codes in the application",
+          "Prevents the controller from returning any JSON data",
+          "Forces the bean to become prototype scope automatically"
+        ],
+        "explanation": "@ResponseStatus is used to define the status code returned, often linked to specific exceptions."
+      },
+      {
+        "question": "What does @RestController combine?",
+        "correctAnswer": "@Controller and @ResponseBody, making all methods return response bodies by default.",
+        "incorrectAnswers": [
+          "@Repository and @Service for transaction management",
+          "@ComponentScan and @Autowired for scanning sub-packages",
+          "@GetMapping and @PostMapping for default request handling"
+        ],
+        "explanation": "@RestController is a shorthand for REST endpoints, automatically serializing responses."
+      },
+      {
+        "question": "What is Spring Data primarily designed to accomplish?",
+        "correctAnswer": "Simplify data access and interactions with various data stores, providing unified repository abstractions.",
+        "incorrectAnswers": [
+          "Force a single global database for all microservices",
+          "Block any usage of SQL queries",
+          "Compile Java classes into a binary database format"
+        ],
+        "explanation": "Spring Data family unifies access to different data stores, abstracting away low-level complexities."
+      },
+      {
+        "question": "How does Spring Data JPA relate to JPA and Hibernate?",
+        "correctAnswer": "Spring Data JPA is an abstraction built on JPA; Hibernate is the common JPA implementation used.",
+        "incorrectAnswers": [
+          "Spring Data JPA replaces JPA entirely and eliminates the need for Hibernate",
+          "JPA is a proprietary version of Spring Data with fewer features",
+          "Hibernate is an annotation used to replace all JPA code"
+        ],
+        "explanation": "JPA is the spec, Hibernate is a provider, and Spring Data JPA sits atop these to reduce boilerplate."
+      },
+      {
+        "question": "Which interface in Spring Data JPA extends CrudRepository and provides extra JPA-specific methods?",
+        "correctAnswer": "JpaRepository",
+        "incorrectAnswers": [
+          "EntityManagerFactory",
+          "JdbcTemplate",
+          "JdbcCrudRepo"
+        ],
+        "explanation": "JpaRepository extends CrudRepository and PagingAndSortingRepository, adding JPA-specific operations."
+      },
+      {
+        "question": "What does CrudRepository focus on in Spring Data?",
+        "correctAnswer": "Basic Create, Read, Update, and Delete operations for an entity.",
+        "incorrectAnswers": [
+          "Only storing text files in memory",
+          "Implementing AI-based predictions for your application",
+          "Forcing all queries to run in parallel streams"
+        ],
+        "explanation": "CrudRepository offers standard CRUD methods: save, findById, findAll, delete, etc."
+      },
+      {
+        "question": "How can you define custom queries in Spring Data repositories?",
+        "correctAnswer": "Using the @Query annotation or by deriving method names from property expressions.",
+        "incorrectAnswers": [
+          "Editing the Java Virtual Machine to parse SQL",
+          "Using only vendor-specific stored procedures with no Java code",
+          "Forcing the repository to implement an interface named MySQLSpecific"
+        ],
+        "explanation": "@Query or derived queries (e.g. findByFirstName) are the usual ways to define custom or dynamic queries."
+      },
+      {
+        "question": "What is a property expression in a Spring Data repository method?",
+        "correctAnswer": "A naming convention to derive queries from method names referencing entity properties, e.g. findByLastName.",
+        "incorrectAnswers": [
+          "A language to write multiline SQL code inside Java docstrings",
+          "A rule that all entity classes must have property placeholders",
+          "An annotation that rewrites the entire repository at runtime"
+        ],
+        "explanation": "Property expressions parse method names like findByAddress_City, generating the underlying query for you."
+      },
+      {
+        "question": "Which annotation marks a class as a JPA entity in Spring Data (or standard JPA)?",
+        "correctAnswer": "@Entity",
+        "incorrectAnswers": [
+          "@IdGenerator",
+          "@JpaBean",
+          "@TableMapping"
+        ],
+        "explanation": "Marking a class with @Entity makes it a persistent domain object recognized by JPA/Hibernate."
+      },
+      {
+        "question": "What does the @Transactional annotation provide in Spring?",
+        "correctAnswer": "Declarative transaction management, automatically handling begin, commit, or rollback around methods.",
+        "incorrectAnswers": [
+          "An alternative to reflection for manual object creation",
+          "Replaces all usage of data structures in your code",
+          "Forbids calling repository methods inside that method"
+        ],
+        "explanation": "@Transactional handles opening/closing transactions automatically, controlling rollback/commit behaviors."
+      },
+      {
+        "question": "Which ACID property ensures that either all operations in a transaction succeed or none do?",
+        "correctAnswer": "Atomicity",
+        "incorrectAnswers": [
+          "Isolation",
+          "Consistency",
+          "Durability"
+        ],
+        "explanation": "Atomicity ensures a transaction is indivisible, failing or succeeding as a complete unit."
+      },
+      {
+        "question": "When using Spring transaction propagation of REQUIRED, what happens if a method with REQUIRED is called inside another transaction?",
+        "correctAnswer": "It joins the existing transaction rather than starting a new one.",
+        "incorrectAnswers": [
+          "It always starts a new transaction and suspends the old one",
+          "It throws an exception because nested transactions are disallowed",
+          "It kills the entire application if another transaction is active"
+        ],
+        "explanation": "REQUIRED will join an existing transaction if present, or create a new one if none exists."
+      },
+      {
+        "question": "Which transaction propagation type always starts a new transaction, suspending any existing one?",
+        "correctAnswer": "REQUIRES_NEW",
+        "incorrectAnswers": [
+          "MANDATORY",
+          "NESTED",
+          "NEVER"
+        ],
+        "explanation": "REQUIRES_NEW begins a separate transaction each time, pausing any existing transaction."
+      },
+      {
+        "question": "What is the main purpose of Spring Boot Actuator?",
+        "correctAnswer": "To provide monitoring and management endpoints to examine and control a running application.",
+        "incorrectAnswers": [
+          "To forcibly minify your code and remove comments",
+          "To generate front-end components from Java classes automatically",
+          "To override all IoC container operations with a single static method"
+        ],
+        "explanation": "Actuator gives endpoints like /health, /info, /metrics, enabling insight into the application’s runtime state."
+      },
+      {
+        "question": "Which Actuator endpoint shows the application’s general health state (e.g., UP, DOWN)?",
+        "correctAnswer": "/health",
+        "incorrectAnswers": [
+          "/allbeans",
+          "/logging",
+          "/heapdump"
+        ],
+        "explanation": "The /health endpoint returns overall health info, commonly used by monitoring systems."
+      },
+      {
+        "question": "What does the /metrics endpoint in Spring Boot Actuator provide?",
+        "correctAnswer": "Detailed metrics like memory usage, CPU, requests, and other performance stats.",
+        "incorrectAnswers": [
+          "Source code listings for all controllers",
+          "A live chat interface for user support",
+          "A forced exit from the application"
+        ],
+        "explanation": "/metrics displays system and application metrics used for monitoring and performance insight."
+      },
+      {
+        "question": "Which statement is true about securing Actuator endpoints?",
+        "correctAnswer": "They can expose sensitive info, so it’s recommended to secure them, e.g., with Spring Security.",
+        "incorrectAnswers": [
+          "They are never accessible from outside the server by default",
+          "They always run on a random ephemeral port no matter your config",
+          "They cannot be protected from unauthorized access"
+        ],
+        "explanation": "Actuator endpoints can reveal environment data; best practice is to protect them with authentication or network restrictions."
+      },
+      {
+        "question": "Which approach is best for unit testing a service layer in Spring with JUnit and Mockito?",
+        "correctAnswer": "Use JUnit for test structure and Mockito to mock external dependencies like repositories.",
+        "incorrectAnswers": [
+          "Always test with a real external system to make it more random",
+          "Disable all tests to save build time",
+          "Inject real DB connections in every unit test"
+        ],
+        "explanation": "Mocking repositories or other dependencies isolates the service logic under test, following best unit-testing practices."
+      },
+      {
+        "question": "What advantage does using mocks (like Mockito) give in unit testing?",
+        "correctAnswer": "They isolate the class under test by providing dummy implementations of dependencies, ensuring reliable tests.",
+        "incorrectAnswers": [
+          "They copy the entire DB schema into memory",
+          "They require no code coverage to pass",
+          "They forcibly rename method parameters"
+        ],
+        "explanation": "Mocks let you define how dependencies behave and verify interactions, avoiding external factors in unit tests."
+      },
+      {
+        "question": "What is the primary focus of integration testing in a Spring Boot application?",
+        "correctAnswer": "Verifying that multiple modules or layers (e.g., controllers, services, DB) work together correctly.",
+        "incorrectAnswers": [
+          "Ensuring only one isolated method works with no external calls",
+          "Preventing any usage of transaction management",
+          "Eliminating all calls to third-party libraries"
+        ],
+        "explanation": "Integration tests confirm if the entire system or subset of modules collectively function as expected."
+      },
+      {
+        "question": "When using MockMVC for integration testing, what does it primarily test?",
+        "correctAnswer": "The controller layer, simulating HTTP requests and responses in-memory without a real server.",
+        "incorrectAnswers": [
+          "The final production environment’s OS kernel calls",
+          "All possible concurrency scenarios across multiple nodes",
+          "The hardware-level code paths in CPU instructions"
+        ],
+        "explanation": "MockMVC sets up a mock web environment to test controllers’ request handling logic in isolation."
+      },
+      {
+        "question": "How does RestTemplate differ from MockMVC in integration testing?",
+        "correctAnswer": "RestTemplate actually makes HTTP requests, typically used when testing external endpoints or a running server, while MockMVC is an in-memory mock approach.",
+        "incorrectAnswers": [
+          "RestTemplate can only be used on Windows machines",
+          "MockMVC is only for writing advanced concurrency code",
+          "RestTemplate disables all HTTP verbs except GET"
+        ],
+        "explanation": "RestTemplate is an HTTP client that can call real endpoints. MockMVC simulates the environment in-memory for controller testing."
+      },
+      {
+        "question": "What is a recommended approach for testing Spring Data repository methods in integration tests?",
+        "correctAnswer": "Using an in-memory database (like H2) with @DataJpaTest to confirm queries and persistence behavior.",
+        "incorrectAnswers": [
+          "Always call a production DB in real-time",
+          "Replacing all repository calls with manual file I/O",
+          "Testing only with a mock, never touching an actual DB"
+        ],
+        "explanation": "@DataJpaTest with H2 allows verifying repository methods in an isolated environment without production data side effects."
+      },
+      {
+        "question": "Which annotation is often used in Spring Boot tests to load the full application context including the web layer?",
+        "correctAnswer": "@SpringBootTest",
+        "incorrectAnswers": [
+          "@JdbcTest",
+          "@BeanTest",
+          "@ConditionalTest"
+        ],
+        "explanation": "@SpringBootTest triggers a full context load, letting you test multiple layers (controllers, services, etc.) together."
+      },
+      {
+        "question": "When performing data integration tests, why might you manage schema changes with Flyway or Liquibase?",
+        "correctAnswer": "To version and automatically apply DB schema changes consistently between dev and test environments.",
+        "incorrectAnswers": [
+          "To encrypt all entity classes so no one can read them",
+          "To forcibly rename the Spring environment to 'flyway' mode",
+          "To turn off the container’s IoC capabilities"
+        ],
+        "explanation": "Flyway and Liquibase handle DB migrations in a version-controlled manner, ensuring correct schema during tests."
+      },
+      {
+        "question": "Which of the following is typically tested by data integration tests?",
+        "correctAnswer": "That repository methods correctly persist, retrieve, update, or delete data in the database.",
+        "incorrectAnswers": [
+          "How controllers handle user sessions only",
+          "Operating system signals on container shutdown",
+          "Network throughput for remote microservices"
+        ],
+        "explanation": "Data integration tests ensure your data access layer actually works with the DB as expected."
+      },
+      {
+        "question": "What is the primary benefit of using an in-memory DB like H2 for testing?",
+        "correctAnswer": "It allows quick, isolated tests without affecting or depending on a real production database.",
+        "incorrectAnswers": [
+          "It automatically logs all user credentials to the console",
+          "It is the only DB supported by Spring at runtime",
+          "It disables transactions for faster performance"
+        ],
+        "explanation": "In-memory DBs let you run fast, ephemeral tests that don’t pollute real databases or require external setups."
+      },
+      {
+        "question": "Which method in MockMVC do you typically use to define an HTTP request (e.g., GET or POST) in a test?",
+        "correctAnswer": "mockMvc.perform(...) with a method like get(\"/endpoint\").",
+        "incorrectAnswers": [
+          "mockMvc.requestSQL(...).",
+          "mockMvc.mockDatabase(...).",
+          "mockMvc.loadContext(...)."
+        ],
+        "explanation": "You define requests with mockMvc.perform, specifying the request type and path (like get(), post(), etc.)."
+      },
+      {
+        "question": "In Spring Boot tests, what does the @DataJpaTest annotation do?",
+        "correctAnswer": "Configures an in-memory database and scans only JPA-related components (e.g., repositories).",
+        "incorrectAnswers": [
+          "Includes a full embedded Tomcat server for MVC tests",
+          "Forces all beans to be singletons only",
+          "Replaces your entity classes with mock objects"
+        ],
+        "explanation": "@DataJpaTest is specialized for testing JPA components, setting up minimal context for repositories, etc."
+      },
+      {
+        "question": "What is a potential risk if you run integration tests against your production database?",
+        "correctAnswer": "You might corrupt or remove real data, leading to undesirable side effects in the production environment.",
+        "incorrectAnswers": [
+          "Spring automatically clones your production DB with no overhead",
+          "It ensures perfect coverage with zero chance of error",
+          "It encrypts all production data so tests can’t read it"
+        ],
+        "explanation": "Testing with production DB can lead to data pollution or accidental modifications, recommended approach is to use dedicated or in-memory DB."
+      },
+      {
+        "question": "Why is it recommended to separate unit tests from integration tests in Spring projects?",
+        "correctAnswer": "Because integration tests often require heavier context loads and external resources, so separating them helps manage time and clarity.",
+        "incorrectAnswers": [
+          "Because unit tests cannot run on the same OS as integration tests",
+          "Because integration tests force the code to run in debug mode only",
+          "Because you must license them differently per developer"
+        ],
+        "explanation": "Unit tests are fast, run in isolation, while integration tests involve more resources and are typically slower."
+      },
+      {
+        "question": "When you annotate a test class with @SpringBootTest, what typically happens?",
+        "correctAnswer": "Spring Boot loads the full application context, allowing end-to-end testing of many components.",
+        "incorrectAnswers": [
+          "It runs no code since it’s only for documentation",
+          "It only loads environment variables, ignoring your beans",
+          "It forcibly changes your bean scopes to request scope"
+        ],
+        "explanation": "@SpringBootTest triggers the full container load, including your main config, letting you test everything together."
+      },
+      {
+        "question": "Which is an example of a valid property expression in a Spring Data repository method name?",
+        "correctAnswer": "findByAddress_City(String city)",
+        "incorrectAnswers": [
+          "findCityByZipOnly(String zip)",
+          "propertyExpression(String field)",
+          "getSomethingCustomException()"
+        ],
+        "explanation": "Nested properties can be specified with underscores, like Address_City, to generate queries from field names."
+      },
+      {
+        "question": "Which annotation can you use to specify an explicit query in a repository method, rather than rely on a derived query?",
+        "correctAnswer": "@Query",
+        "incorrectAnswers": [
+          "@SQLMapping",
+          "@DefinedQuery",
+          "@Statement"
+        ],
+        "explanation": "@Query lets you write JPQL or native SQL queries instead of letting Spring derive queries from method names."
+      },
+      {
+        "question": "What is the difference between CrudRepository and JpaRepository?",
+        "correctAnswer": "JpaRepository extends CrudRepository and adds JPA-specific methods like flush, batch operations, etc.",
+        "incorrectAnswers": [
+          "CrudRepository is for RDBMS while JpaRepository is for NoSQL only",
+          "They have identical features except one has a different package name",
+          "JpaRepository is deprecated in favor of CrudRepository"
+        ],
+        "explanation": "JpaRepository has all CrudRepository functionality plus features like pagination, flush, etc."
+      },
+      {
+        "question": "Which statement is accurate for @Transactional on the class level?",
+        "correctAnswer": "All public methods of that class are transactional by default unless otherwise specified.",
+        "incorrectAnswers": [
+          "It only affects private methods",
+          "It disables transaction support for that class",
+          "It reverts to field injection for all dependencies"
+        ],
+        "explanation": "Declaring @Transactional at class level applies it to all public methods within that class."
+      },
+      {
+        "question": "How can you override default auto-configuration in Spring Boot if you want a custom setup?",
+        "correctAnswer": "By defining your own bean of the same type or using @ConditionalOnMissingBean to selectively skip auto-config.",
+        "incorrectAnswers": [
+          "By removing all dependencies from the classpath forcibly",
+          "By rewriting the @EnableAutoConfiguration annotation in every class",
+          "It is impossible to override auto-configuration in Spring Boot"
+        ],
+        "explanation": "You can define beans with the same name or type, or use custom config to override auto-config behavior."
+      },
+      {
+        "question": "Which annotation is typically used in a test class to load partial Spring context only scanning JPA repositories?",
+        "correctAnswer": "@DataJpaTest",
+        "incorrectAnswers": [
+          "@SpringTestLoadPartial",
+          "@AutoConfigureMockMvc",
+          "@WebMvcTest"
+        ],
+        "explanation": "@DataJpaTest is specialized for JPA components, scanning only repositories and using an in-memory DB by default."
+      },
+      {
+        "question": "Why might you prefer MockMVC for testing a Spring MVC controller over using RestTemplate locally?",
+        "correctAnswer": "MockMVC doesn’t require starting a real server, making tests faster and more isolated.",
+        "incorrectAnswers": [
+          "MockMVC automatically creates random endpoints each time",
+          "RestTemplate can’t test JSON endpoints at all",
+          "MockMVC forcibly modifies your database schema"
+        ],
+        "explanation": "MockMVC simulates requests in-memory, avoiding a full server spin-up, so it’s often used for faster controller-layer tests."
+      },
+      {
+        "question": "What does it mean if a method in a Spring Data repository returns Optional<T>?",
+        "correctAnswer": "It indicates the method may return a single entity or no result, using Optional for safe handling of null.",
+        "incorrectAnswers": [
+          "It means the method can only be called once",
+          "It triggers an immediate transaction rollback on success",
+          "It requires reflection to convert the object to a string"
+        ],
+        "explanation": "Returning Optional prevents NullPointerExceptions if the record is missing."
+      },
+      {
+        "question": "How does the @RestController differ from @Controller in response handling?",
+        "correctAnswer": "@RestController implicitly applies @ResponseBody, so all return values are written as response content.",
+        "incorrectAnswers": [
+          "@RestController always requires an XML-based configuration file",
+          "@Controller automatically encrypts all JSON output",
+          "@RestController cannot handle any GET requests, only POST"
+        ],
+        "explanation": "A @RestController is basically a controller specialized for REST, returning JSON or similar by default."
+      },
+      {
+        "question": "Which scenario is best verified by integration tests rather than unit tests?",
+        "correctAnswer": "Ensuring a controller, service, and repository properly coordinate to handle a user’s request and persist data.",
+        "incorrectAnswers": [
+          "Testing a single method that adds two numbers",
+          "Verifying a private utility method’s logic in isolation",
+          "Checking if a class compiles with zero warnings"
+        ],
+        "explanation": "Integration tests check end-to-end logic across multiple layers or modules, not isolated methods."
+      },
+      {
+        "question": "Which statement about the transaction propagation type NEVER is correct?",
+        "correctAnswer": "It throws an exception if called inside an active transaction.",
+        "incorrectAnswers": [
+          "It always starts a new transaction ignoring existing ones",
+          "It merges multiple transactions into a single global one",
+          "It suspends the main transaction and creates a nested scope"
+        ],
+        "explanation": "NEVER disallows an existing transaction, so it fails if a transaction context is present."
+      },
+      {
+        "question": "In ACID, which property ensures that once a transaction is committed, it remains committed even if the system fails?",
+        "correctAnswer": "Durability",
+        "incorrectAnswers": [
+          "Isolation",
+          "Atomicity",
+          "Consistency"
+        ],
+        "explanation": "Durability ensures committed changes are persisted and survive subsequent failures."
+      },
+      {
+        "question": "When might you set the isolation level in a @Transactional annotation?",
+        "correctAnswer": "When you need control over concurrent transactions seeing uncommitted data or repeated reads.",
+        "incorrectAnswers": [
+          "When you want to schedule the transaction daily at midnight",
+          "When you must disable the container’s class loader",
+          "When you plan to delete the entire database on read"
+        ],
+        "explanation": "Isolation level determines how transaction concurrency issues (dirty reads, phantom reads, etc.) are handled."
+      },
+      {
+        "question": "Which approach is recommended for testing code that uses @Transactional methods?",
+        "correctAnswer": "Use the Spring test framework with an embedded or test DB and optionally rollback after tests.",
+        "incorrectAnswers": [
+          "Never test it; rely on user feedback in production",
+          "Use only JUnit 3 with no external libraries allowed",
+          "Always deploy into production for integration testing"
+        ],
+        "explanation": "Spring test support can handle transactions in tests, rolling back or using in-memory DB for safe checks."
+      },
+      {
+        "question": "When the bean scope is request, how often is a new bean instance created?",
+        "correctAnswer": "Once per individual HTTP request, unique for that request.",
+        "incorrectAnswers": [
+          "Only once for the entire lifetime of the container",
+          "Once per session, shared by all requests in the session",
+          "For every single method call to the bean, regardless of request"
+        ],
+        "explanation": "Request scope means a fresh bean instance is created for each incoming HTTP request."
+      },
+      {
+        "question": "Which Actuator endpoint can be used to retrieve loggers and possibly change their logging levels?",
+        "correctAnswer": "/loggers",
+        "incorrectAnswers": [
+          "/env",
+          "/actuatelogs",
+          "/startup"
+        ],
+        "explanation": "The /loggers endpoint shows configured loggers and allows adjusting log levels at runtime if exposed."
+      },
+      {
+        "question": "What does the /heapdump endpoint provide if enabled in Spring Boot Actuator?",
+        "correctAnswer": "A snapshot of the JVM heap for diagnosing memory usage or leaks.",
+        "incorrectAnswers": [
+          "A list of all users logged into the system",
+          "A CSV file containing all server logs",
+          "An encrypted copy of the environment variables"
+        ],
+        "explanation": "/heapdump captures the memory state of the JVM in a file for analysis with tools like VisualVM."
+      },
+      {
+        "question": "Which common annotation is used for mocking dependencies in a JUnit test with Mockito?",
+        "correctAnswer": "@Mock",
+        "incorrectAnswers": [
+          "@FakeDependency",
+          "@AutowiredTestOnly",
+          "@TransientMock"
+        ],
+        "explanation": "@Mock from Mockito indicates a mocked object, letting you define stubs or verify interactions."
+      },
+      {
+        "question": "How do you typically test that a service method calls a repository method with the correct arguments using Mockito?",
+        "correctAnswer": "Use verify(repository).someMethod(argumentMatcher...) after triggering the service method call.",
+        "incorrectAnswers": [
+          "By rewriting the repository to log all calls to a text file",
+          "You cannot verify calls to a mock with Mockito",
+          "By creating a separate main method to watch console output"
+        ],
+        "explanation": "Mockito’s verify() method checks if a mock method was invoked, with specified parameters."
+      },
+      {
+        "question": "Which operation is best suited for an integration test rather than a unit test?",
+        "correctAnswer": "Testing an entire HTTP request/response lifecycle that saves data to the DB and returns JSON.",
+        "incorrectAnswers": [
+          "Checking a single if condition in a private method",
+          "Comparing two local variables for equality in a plain POJO",
+          "Verifying that a single class compiles with no errors"
+        ],
+        "explanation": "Integration tests often span multiple layers (controller -> service -> repository -> database) or external interactions."
+      },
+      {
+        "question": "What does the @SpringBootTest annotation do by default if you do not specify any parameters?",
+        "correctAnswer": "It loads your entire application context, scanning all beans, effectively a full integration test setup.",
+        "incorrectAnswers": [
+          "It loads only your controllers but not services or repositories",
+          "It merges all your property files into a single JSON output",
+          "It executes your main method repeatedly in an infinite loop"
+        ],
+        "explanation": "A bare @SpringBootTest starts a complete Spring context, similar to running the entire app in test mode."
+      },
+      {
+        "question": "If you only want to test web layer components (e.g., controllers) in isolation, which annotation is recommended?",
+        "correctAnswer": "@WebMvcTest",
+        "incorrectAnswers": [
+          "@DataTestOnly",
+          "@ServiceScan",
+          "@JdbcIntegrationTest"
+        ],
+        "explanation": "@WebMvcTest loads only the controller layer with minimal auto-configuration to test MVC endpoints quickly."
+      },
+      {
+        "question": "What does the NESTED propagation type do in Spring transactions?",
+        "correctAnswer": "Starts a nested transaction; if an exception occurs, it rolls back to a savepoint without affecting the outer transaction.",
+        "incorrectAnswers": [
+          "Forces all transactions to be global singletons",
+          "Throws an exception if a transaction is not active yet",
+          "Never starts or joins any transaction context"
+        ],
+        "explanation": "NESTED runs within an existing transaction but can roll back to a savepoint inside that transaction."
+      },
+      {
+        "question": "In a Spring application, how do you typically override default Actuator endpoint paths or exposure settings?",
+        "correctAnswer": "Configure them in application.properties or YAML, e.g., management.endpoints.web.exposure.include",
+        "incorrectAnswers": [
+          "Rewrite the Actuator’s source code in your IDE",
+          "You cannot override them once the container is started",
+          "Use environment variables named ACTUATOR_FORCE_OVERRIDE"
+        ],
+        "explanation": "Actuator endpoints can be customized via application.* or equivalent configuration keys."
+      },
+      {
+        "question": "Which concurrency-related advantage does the Spring Data JPA repository approach provide?",
+        "correctAnswer": "It can handle locking scenarios (optimistic/pessimistic) via JPA, ensuring safer concurrent updates.",
+        "incorrectAnswers": [
+          "It merges all writes from all threads into random columns",
+          "It disallows multiple threads from reading data concurrently",
+          "It automatically kills slow transactions with no configuration"
+        ],
+        "explanation": "Spring Data JPA integrates with JPA/Hibernate’s concurrency/locking options for safer multi-thread data usage."
+      },
+      {
+        "question": "Which is typically not included in a minimal @DataJpaTest context?",
+        "correctAnswer": "A running embedded servlet container for HTTP endpoints",
+        "incorrectAnswers": [
+          "In-memory database configuration",
+          "Entity scanning for JPA classes",
+          "Spring Data JPA repository beans"
+        ],
+        "explanation": "@DataJpaTest focuses on JPA components (entities, repos). It does not start a web server or load MVC beans."
+      },
+      {
+        "question": "How does @AutoConfigureMockMvc help in integration tests?",
+        "correctAnswer": "It configures MockMVC automatically, allowing you to test web layer endpoints without starting a real server.",
+        "incorrectAnswers": [
+          "It disables all security checks globally",
+          "It modifies your entity classes to support reflection-based creation only",
+          "It merges your test code into production logs"
+        ],
+        "explanation": "@AutoConfigureMockMvc sets up MockMvc so you can test controllers in an application with a loaded context."
+      },
+      {
+        "question": "What does @EnableAutoConfiguration do when used outside of @SpringBootApplication?",
+        "correctAnswer": "Enables Spring Boot’s auto-configuration mechanism, scanning the classpath to configure beans automatically.",
+        "incorrectAnswers": [
+          "Disables bean scanning entirely",
+          "Makes all beans final and unmodifiable",
+          "Only configures unit testing code, ignoring real classes"
+        ],
+        "explanation": "@EnableAutoConfiguration is the main switch for Boot’s auto-configuration, though typically used with @SpringBootApplication."
+      },
+      {
+        "question": "What is the recommended strategy to ensure you have consistent schema changes in your integration tests?",
+        "correctAnswer": "Use a versioned migration tool like Flyway or Liquibase and apply them before your test runs.",
+        "incorrectAnswers": [
+          "Edit your test code to manually create and drop all tables",
+          "Rely on random generation of tables every time",
+          "Disable DDL in the test environment entirely"
+        ],
+        "explanation": "Migration tools keep schema changes tracked, ensuring tests run with the correct schema changes applied."
+      },
+      {
+        "question": "When using the .andExpect() method in MockMVC, what are you typically verifying?",
+        "correctAnswer": "That the response has certain status codes, headers, or content matching expected values.",
+        "incorrectAnswers": [
+          "That the database persisted everything successfully without queries",
+          "That the code compiled with zero warnings",
+          "That the OS environment variables are correct"
+        ],
+        "explanation": "MockMVC .andExpect(...) checks the resulting HTTP response, ensuring it matches the expectations like status=200, JSON content, etc."
+      },
+      {
+        "question": "Which scenario best describes a real advantage of the Spring Test slice approach (like @WebMvcTest, @DataJpaTest)?",
+        "correctAnswer": "They load only the necessary beans for that slice, speeding up test startup and focusing on a specific layer.",
+        "incorrectAnswers": [
+          "They forcibly load an entire microservice network for every test",
+          "They skip testing any actual code, focusing only on logs",
+          "They rename all endpoints to random hashed values"
+        ],
+        "explanation": "Slice annotations load minimal context for the specific layer, making tests faster and more focused."
+      },
+      {
+        "question": "Why might you use the @Rollback annotation in a test that uses @Transactional?",
+        "correctAnswer": "To revert changes to the DB after each test, ensuring a clean state for subsequent tests.",
+        "incorrectAnswers": [
+          "To permanently save all test data to production DB",
+          "To force concurrency exceptions for debugging",
+          "To skip loading the application context entirely"
+        ],
+        "explanation": "Marking a test with @Rollback ensures the changes made by that test are undone, so the DB remains untouched for the next test."
+      },
+      {
+        "question": "How does the JPA @Id annotation relate to the entity?",
+        "correctAnswer": "It marks the primary key field, telling JPA which field uniquely identifies the entity.",
+        "incorrectAnswers": [
+          "It indicates a read-only field that can’t be updated",
+          "It is used to label the entity’s final method",
+          "It means the entity is inherited from a random superclass"
+        ],
+        "explanation": "@Id is a standard JPA annotation for specifying the primary key in an entity class."
+      },
+      {
+        "question": "Which statement about @RestController testing with Spring is correct?",
+        "correctAnswer": "Using MockMVC or WebMvcTest helps you confirm your REST endpoints produce expected status and body without starting an actual server.",
+        "incorrectAnswers": [
+          "You must always spin up Tomcat locally for each test run",
+          "You can only test controllers with real DB calls in production",
+          "You have to compile the code with a custom plugin for REST tests"
+        ],
+        "explanation": "MockMVC or @WebMvcTest can test your REST endpoints in memory, verifying JSON output, statuses, etc."
+      },
+      {
+        "question": "What is the main reason for using the @Query annotation with named parameters, like @Param(\"value\")?",
+        "correctAnswer": "It clarifies which method parameter is mapped to a named parameter in the JPQL/SQL query.",
+        "incorrectAnswers": [
+          "It stops the transaction before every line of code",
+          "It marks a method parameter as read-only",
+          "It ensures the method always returns an empty list"
+        ],
+        "explanation": "@Param is used inside @Query to bind a method parameter to a named placeholder in the query string."
+      },
+      {
+        "question": "How do you typically define a custom Spring Boot actuator endpoint?",
+        "correctAnswer": "Create a bean implementing the endpoint interface or returning an @Endpoint with operations.",
+        "incorrectAnswers": [
+          "Override the default Tomcat logs with your custom method calls",
+          "Use the @CustomActuator annotation in every service class",
+          "Disable the entire actuator and handle logs manually"
+        ],
+        "explanation": "Spring Boot provides ways to define custom endpoints with classes annotated with @Endpoint, @ReadOperation, etc."
+      },
+      {
+        "question": "Which statement about partial mocking (via Mockito’s spy) is correct?",
+        "correctAnswer": "A spy allows calling real method implementations except for the methods you specifically stub.",
+        "incorrectAnswers": [
+          "Spies replace every method call with a random result",
+          "Spies are recommended for all final classes only",
+          "You cannot verify calls on a spy object"
+        ],
+        "explanation": "Spies let you partially mock a real object, calling the real code unless specifically overridden in a stub."
+      },
+      {
+        "question": "When using an embedded container in Spring Boot, which method in the main application typically launches the server?",
+        "correctAnswer": "SpringApplication.run(...)",
+        "incorrectAnswers": [
+          "ContainerStarter.initServer()",
+          "HttpContainer.startServer()",
+          "ServletEngine.bootstrap()"
+        ],
+        "explanation": "The main method calls SpringApplication.run(...) to create the Spring context and start the embedded server if needed."
+      },
+      {
+        "question": "Which approach is best for verifying that your custom BeanPostProcessor behaves correctly?",
+        "correctAnswer": "Integration or context-based tests that load the Spring context and check the bean states after post-processing.",
+        "incorrectAnswers": [
+          "Using only a main method that prints random logs",
+          "Excluding the post-processor from the container entirely",
+          "Mocking the entire container so the post-processor never runs"
+        ],
+        "explanation": "A real or partial Spring context load is needed to confirm post-processors function as expected on bean creation."
+      },
+      {
+        "question": "Which advantage does Spring Data’s automatic query derivation provide?",
+        "correctAnswer": "It reduces boilerplate by generating query logic from properly named repository methods.",
+        "incorrectAnswers": [
+          "It automatically changes the DB schema based on your method names",
+          "It locks the database for all read operations until the app restarts",
+          "It merges every entity field into a single string column"
+        ],
+        "explanation": "Spring Data can parse repository method names like findByUsername to create the underlying query automatically."
+      },
+      {
+        "question": "What can you do if Spring Boot’s auto-configured beans do not suit your project’s needs?",
+        "correctAnswer": "Manually define or override specific beans or properties in your configuration, customizing them as required.",
+        "incorrectAnswers": [
+          "You must uninstall Spring Boot entirely",
+          "It is impossible to change any auto-configured beans once started",
+          "Completely rename the beans in the annotation to break auto-config"
+        ],
+        "explanation": "Auto-configuration can be overridden by providing your own @Bean definitions or adjusting properties to match your specific requirements."
+      },
+      {
+        "question": "How do you typically monitor memory usage, CPU load, or request throughput in a Spring Boot application?",
+        "correctAnswer": "Enable Actuator’s /metrics endpoint or integrate with a monitoring tool to gather these metrics.",
+        "incorrectAnswers": [
+          "Use the /heapdump endpoint to forcibly free memory",
+          "You cannot track memory usage in Spring Boot",
+          "Compile a custom OS kernel that logs these metrics to a text file"
+        ],
+        "explanation": "Actuator’s /metrics endpoint or third-party monitoring solutions can provide memory, CPU, and other performance stats."
+      },
+      {
+        "question": "What is the effect of specifying 'rollbackFor=Exception.class' in @Transactional?",
+        "correctAnswer": "It triggers a rollback if any Exception (or subclass) is thrown in the annotated method.",
+        "incorrectAnswers": [
+          "It logs the error but commits the transaction anyway",
+          "It changes your bean scope to rollback-scope",
+          "It transforms all exception classes into runtime ones automatically"
+        ],
+        "explanation": "rollbackFor=Exception.class ensures that any checked or unchecked exception triggers a transaction rollback."
+      },
+      {
+        "question": "What is the recommended default scope for most stateless Spring service beans?",
+        "correctAnswer": "Singleton scope.",
+        "incorrectAnswers": [
+          "Request scope, so each user gets a fresh service bean",
+          "Session scope, storing data in user sessions",
+          "Prototype scope for all classes to reduce memory usage"
+        ],
+        "explanation": "Stateless services typically work best as singletons, one instance shared across the app."
+      },
+      {
+        "question": "Which statement about the real-time changing of logging levels via the Actuator /loggers endpoint is correct?",
+        "correctAnswer": "You can modify the logging level for specific packages or classes without restarting the application.",
+        "incorrectAnswers": [
+          "You must recompile the code to change log levels",
+          "Only INFO and DEBUG are recognized by Spring Actuator",
+          "Changes persist after restart without any special settings"
+        ],
+        "explanation": "The /loggers endpoint allows dynamic changes in log levels at runtime, though a restart reverts them if not saved in config."
+      },
+      {
+        "question": "What is the main difference between micro-level tests (unit tests) and macro-level tests (integration tests) in Spring?",
+        "correctAnswer": "Unit tests isolate individual classes or methods, while integration tests verify multiple components interacting end-to-end.",
+        "incorrectAnswers": [
+          "Integration tests are always faster than unit tests",
+          "Unit tests require a real DB connection but integration tests do not",
+          "Unit tests can’t be run from IDEs while integration tests can"
+        ],
+        "explanation": "Unit tests focus on single units; integration tests verify the overall synergy among components (service, DB, etc.)."
+      },
+      {
+        "question": "When verifying concurrent data changes in a Spring Data JPA application, which property is frequently used to handle concurrency?",
+        "correctAnswer": "Optimistic locking with a version field annotated by @Version.",
+        "incorrectAnswers": [
+          "A single global static int used as a lock token",
+          "A concurrency mode that modifies the CPU scheduler",
+          "A random query that merges changes from all threads"
+        ],
+        "explanation": "Optimistic locking uses a version attribute so updates check that no other transaction changed the record in the meantime."
+      },
+      {
+        "question": "What does the @Rollback(false) attribute do in a test annotated with @Transactional?",
+        "correctAnswer": "It prevents the automatic rollback, allowing changes to remain in the test DB after the test finishes.",
+        "incorrectAnswers": [
+          "It forces a rollback at the beginning of the method",
+          "It merges the data changes into the next test method automatically",
+          "It denies all insert/update statements in the DB"
+        ],
+        "explanation": "Normally tests with @Transactional roll back by default; @Rollback(false) will commit them instead."
+      },
+      {
+        "question": "Which Actuator endpoint is typically used to see recent HTTP request/response traces?",
+        "correctAnswer": "/httptrace",
+        "incorrectAnswers": [
+          "/recenthttp",
+          "/endpoints",
+          "/requestbuffer"
+        ],
+        "explanation": "/httptrace shows the last 100 (or configured limit) requests/responses, helpful for debugging HTTP flows."
+      },
+      {
+        "question": "How can you pass dynamic placeholders to the @PropertySource annotation?",
+        "correctAnswer": "Use the syntax @PropertySource(\"classpath:persistence-${envTarget:mysql}.properties\") to load environment-specific files.",
+        "incorrectAnswers": [
+          "You must rename the class to ‘PlaceholderAwareClass’",
+          "PropertySource cannot handle placeholders of any kind",
+          "Use environment variable expansions in the actual .jar file"
+        ],
+        "explanation": "@PropertySource supports placeholders, letting you specify different property files based on environment variables or system properties."
+      },
+      {
+        "question": "Which statement about the benefits of IoC containers like BeanFactory or ApplicationContext is correct?",
+        "correctAnswer": "They decouple object creation from usage, making code more modular, testable, and flexible.",
+        "incorrectAnswers": [
+          "They compile the code into hardware instructions on the CPU",
+          "They require each bean to be final and static",
+          "They only allow singletons and forbid multiple instances"
+        ],
+        "explanation": "IoC containers handle object instantiation and wiring, enabling more maintainable, decoupled code."
+      },
+      {
+        "question": "Which annotation helps define a custom init or destroy method in XML config if you want to do it in Java-based config?",
+        "correctAnswer": "@Bean(initMethod = \"init\", destroyMethod = \"cleanup\")",
+        "incorrectAnswers": [
+          "@Scope(\"init\") at the class level",
+          "@InitDestroy on the field definition",
+          "@Component(init = true, destroy = true)"
+        ],
+        "explanation": "You can specify initMethod and destroyMethod in @Bean annotation to run custom lifecycle methods."
+      },
+      {
+        "question": "Which statement best describes the use of @Autowired for constructor injection in modern Spring versions?",
+        "correctAnswer": "Often, explicit @Autowired on a single constructor is optional; Spring can infer it if there’s only one constructor.",
+        "incorrectAnswers": [
+          "You must always annotate every parameter individually with @Autowired",
+          "Spring no longer supports constructor injection since Boot 2.0",
+          "It forcibly changes the scope to request if the constructor is private"
+        ],
+        "explanation": "If there is exactly one constructor, Spring can automatically use it for injection, making explicit @Autowired optional."
+      }
+    ]
+  }
+  
