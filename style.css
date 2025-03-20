@@ -1,0 +1,199 @@
+/* Base styling: minimalist and modern */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+
+/* Header */
+header {
+  text-align: right;
+  margin-bottom: 20px;
+}
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+}
+body.dark-mode #darkModeToggle {
+  color: #ddd;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Splash Page */
+.splash {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+body.dark-mode .splash {
+  background-color: #1e1e1e;
+}
+
+/* Custom File Input */
+.custom-file {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.custom-file:hover {
+  background-color: #0056b3;
+}
+.custom-file input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Start Quiz Button */
+.start-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.start-btn:hover {
+  background-color: #218838;
+}
+
+/* Quiz Section */
+.quiz {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+body.dark-mode .quiz {
+  background-color: #1e1e1e;
+}
+.main-content {
+  margin-bottom: 1rem;
+}
+.question {
+  margin-bottom: 1rem;
+}
+.choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.choice {
+  margin: 0.5rem 0;
+}
+.next-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.next-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Sidebar (moved to left) */
+.sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 300px;
+}
+body.dark-mode .sidebar {
+  background-color: #1e1e1e;
+}
+.sidebar-toggle {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.sidebar-toggle:hover {
+  background-color: #5a6268;
+}
+.review-list {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+.sidebar-entry {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.sidebar-entry p {
+  margin: 0.3rem 0;
+}
+
+/* Review answer colors */
+.correct {
+  color: green;
+  font-weight: bold;
+}
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+/* Sample JSON Code Block */
+.sample-json {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+.sample-json h2 {
+  color: #ff79c6;
+  margin-bottom: 0.5rem;
+}
+.sample-json pre {
+  margin: 0;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  text-align: left; /* Ensure text is left-aligned */
+}

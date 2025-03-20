@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- Minimalist dark mode icon -->
+    <button id="darkModeToggle" title="Toggle Dark Mode">&#9790;</button>
+  </header>
+  <div class="container">
+    <!-- Splash Page -->
+    <div id="splashPage" class="splash">
+      <h1>Quiz App</h1>
+      <p>A minimal webUI for quizzing yourself. Upload a JSON file in the proper format below and submit it to start your quiz.</p>
+      
+      <!-- Sample JSON code block -->
+      <div class="sample-json">
+        <h2>Sample JSON Format:</h2>
+        <pre><code>{
+  "questions": [
+    {
+      "question": "What does git push do?",
+      "correctAnswer": "It sends local commits to a remote repository so others can access them.",
+      "incorrectAnswers": [
+        "It downloads changes from the remote repository",
+        "It merges remote branches into local by default",
+        "It reverts your last commit to a stable version"
+      ],
+      "explanation": "Push updates the remote branch with your local commits."
+    },
+    {
+      "question": "Why use branching in Git?",
+      "correctAnswer": "To develop features/fixes in isolation and merge them back without disturbing the main code until ready.",
+      "incorrectAnswers": [
+        "To store binary large objects in memory",
+        "To rename all your commits automatically",
+        "To permanently disconnect from the remote repository"
+      ],
+      "explanation": "Branches let you experiment or build features without affecting the stable main branch."
+    }
+  ]
+}</code></pre>
+      </div>
+
+      <!-- File input and Start Quiz button -->
+      <label for="fileInput" class="custom-file">
+        Choose File
+        <input type="file" id="fileInput" accept=".json">
+      </label>
+      <button id="startQuizButton" class="start-btn">Start Quiz</button>
+    </div>
+    
+    <!-- Quiz Section -->
+    <div id="quizSection" class="quiz" style="display: none;">
+      <div id="questionContainer" class="main-content">
+        <!-- Question & choices will appear here -->
+      </div>
+      <button id="nextButton" class="next-btn" style="display: none;">Next Question</button>
+    </div>
+    
+    <!-- Sidebar (moved to left) for a running list of reviews -->
+    <div id="sidebar" class="sidebar">
+      <button id="sidebarToggle" class="sidebar-toggle" title="Show/Hide Review">Show/Hide Review</button>
+      <div id="reviewList" class="review-list" style="display: none;">
+        <!-- Running list of question reviews will be appended here -->
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
