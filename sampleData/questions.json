@@ -1,0 +1,1005 @@
+{
+    "questions": [
+      {
+        "question": "What is the role of the stack in Java memory management?",
+        "correctAnswer": "The stack is used for static memory allocation and method execution. It stores primitive variables and references to objects in the heap.",
+        "incorrectAnswers": [
+          "The stack persists across multiple program executions without clearing",
+          "The stack holds every object created by the application",
+          "The stack is used only for file I/O operations"
+        ],
+        "explanation": "Each time a method is called, a new stack frame is pushed containing local variables and references; it’s popped when the method returns."
+      },
+      {
+        "question": "What is the role of the heap in Java memory management?",
+        "correctAnswer": "The heap is used for dynamic memory allocation of Java objects and JRE classes at runtime.",
+        "incorrectAnswers": [
+          "The heap is used solely for storing method return values",
+          "The heap automatically deallocates objects without needing a garbage collector",
+          "The heap is a small, fixed-size memory section unavailable to threads"
+        ],
+        "explanation": "All objects are created in the heap. A garbage collector reclaims memory for objects that are no longer referenced."
+      },
+      {
+        "question": "Why is stack access generally faster than heap access?",
+        "correctAnswer": "Stack allocation and deallocation follow a simple LIFO structure, whereas heap allocation requires more complex memory management.",
+        "incorrectAnswers": [
+          "Stacks compress all data into a single byte for speed",
+          "Stacks only store global variables, making them smaller than heaps",
+          "The heap never frees memory, so it’s slower to write"
+        ],
+        "explanation": "Stacks use LIFO and are automatically managed when methods start and end, which is simpler and faster than heap allocation."
+      },
+      {
+        "question": "What happens when the stack is full?",
+        "correctAnswer": "A java.lang.StackOverflowError is thrown.",
+        "incorrectAnswers": [
+          "A NullPointerException is thrown by default",
+          "A java.lang.OutOfMemoryError is always thrown",
+          "The program continues silently by overwriting existing memory"
+        ],
+        "explanation": "If recursion or deep method calls exceed the stack’s capacity, StackOverflowError occurs."
+      },
+      {
+        "question": "What is a common error thrown when the heap runs out of space?",
+        "correctAnswer": "A java.lang.OutOfMemoryError is thrown.",
+        "incorrectAnswers": [
+          "A FileNotFoundException is thrown",
+          "An IllegalArgumentException is thrown",
+          "A runtime automatically increases heap size without error"
+        ],
+        "explanation": "When no more memory is available for new objects, an OutOfMemoryError occurs."
+      },
+      {
+        "question": "Why are strings typically stored in the heap even though they have a special pool?",
+        "correctAnswer": "All objects, including String literals, ultimately reside in the heap; the String Pool is a specific area within the heap.",
+        "incorrectAnswers": [
+          "Strings are stored entirely in the stack",
+          "Strings aren’t objects, so they remain in method local memory",
+          "They are stored in the OS kernel, not in the JVM"
+        ],
+        "explanation": "Even though we have a String Pool, it is still part of the heap; string literals go there for reuse."
+      },
+      {
+        "question": "How do the young generation and old generation differ in the heap?",
+        "correctAnswer": "The young generation stores newly created objects, and the old generation holds long-surviving objects promoted from the young generation.",
+        "incorrectAnswers": [
+          "The old generation is for variables and the young generation is for methods",
+          "The young generation is dedicated to static variables only",
+          "The old generation is for OS-level processes, not objects"
+        ],
+        "explanation": "Garbage collection is more frequent in the young generation; objects that survive are moved to the old generation."
+      },
+      {
+        "question": "Is stack memory shared across multiple threads?",
+        "correctAnswer": "No. Each thread has its own stack.",
+        "incorrectAnswers": [
+          "Yes, all threads share one big stack by default",
+          "Yes, but only if you enable a special JVM flag",
+          "It depends on whether the stack is marked as static"
+        ],
+        "explanation": "Thread safety is easier because each thread has a separate stack for local variables and calls."
+      },
+      {
+        "question": "Is heap memory shared across multiple threads?",
+        "correctAnswer": "Yes. All threads can access objects in the shared heap.",
+        "incorrectAnswers": [
+          "No, each thread also has its own heap",
+          "Only daemon threads can share heap data",
+          "Only static objects are placed in a shared region"
+        ],
+        "explanation": "Objects in the heap are globally accessible, so concurrency control (like synchronization) may be needed."
+      },
+      {
+        "question": "Why is understanding stack vs. heap memory important in Java?",
+        "correctAnswer": "It helps optimize resource usage, manage concurrency, and diagnose memory errors effectively.",
+        "incorrectAnswers": [
+          "It ensures your code never throws exceptions",
+          "It prevents having to use garbage collection",
+          "It allows storing methods in the heap"
+        ],
+        "explanation": "Developers gain insight on performance implications and memory usage by knowing stack vs. heap characteristics."
+      },
+      {
+        "question": "What does 'full stack developer' mean?",
+        "correctAnswer": "A developer who is well-versed in both front-end and back-end aspects of an application.",
+        "incorrectAnswers": [
+          "A developer who only codes database queries",
+          "A developer who specializes in UI design alone",
+          "A developer restricted to system-level programming"
+        ],
+        "explanation": "Full stack involves front-end (user interface) and back-end (servers, databases) development."
+      },
+      {
+        "question": "Why might modern businesses favor full stack developers?",
+        "correctAnswer": "They can handle a broad range of tasks, reducing hand-offs and improving efficiency.",
+        "incorrectAnswers": [
+          "They only write CSS code and nothing else",
+          "They are always cheaper than specialized developers",
+          "They do not need teamwork to build enterprise solutions"
+        ],
+        "explanation": "Full stack developers have diverse skill sets allowing them to switch between tasks in front-end and back-end seamlessly."
+      },
+      {
+        "question": "Give an analogy for front end vs. back end in a restaurant setting.",
+        "correctAnswer": "Front end is like the dining area customers see; back end is like the kitchen and pantry hidden from customers.",
+        "incorrectAnswers": [
+          "Front end is the manager’s office; back end is the main entrance",
+          "Front end is the garage; back end is the reception desk",
+          "Front end is the pavement outside; back end is the road signage"
+        ],
+        "explanation": "The dining area handles customer experience, while the kitchen logic is behind the scenes."
+      },
+      {
+        "question": "What are the main layers in a full stack application?",
+        "correctAnswer": "Presentation layer (front end), business logic layer (back end), and data layer (database).",
+        "incorrectAnswers": [
+          "Operating system, BIOS, and virtual machine layer",
+          "UI color scheme, code indentation, and user management",
+          "Physical building, utility lines, and interior design"
+        ],
+        "explanation": "A common three-layer architecture: front-end interface, back-end logic, and a data store."
+      },
+      {
+        "question": "In a full stack environment, what is the role of servers and databases?",
+        "correctAnswer": "Servers process requests and databases store data. They cooperate to deliver application features.",
+        "incorrectAnswers": [
+          "Servers only host images, while the database handles UI rendering",
+          "Servers cannot contain logic, only static files",
+          "Databases are designed to handle front-end styling"
+        ],
+        "explanation": "Servers handle business logic; databases persist data used by the application."
+      },
+      {
+        "question": "Who originally invented Java, and in what year was it first released?",
+        "correctAnswer": "James Gosling at Sun Microsystems, first released in 1995.",
+        "incorrectAnswers": [
+          "Linus Torvalds in 1991",
+          "Guido van Rossum in 1989",
+          "Tim Berners-Lee in 1995"
+        ],
+        "explanation": "James Gosling is called the 'father of Java'; it debuted publicly in 1995."
+      },
+      {
+        "question": "Why is Java considered platform-independent?",
+        "correctAnswer": "Compiled Java code is turned into bytecode, which runs on any OS that has a JVM implementation.",
+        "incorrectAnswers": [
+          "All operating systems natively compile Java code to machine instructions",
+          "Java is a purely interpreted language with no compiler step",
+          "Java programs only run on Windows but can emulate other OSes"
+        ],
+        "explanation": "The JVM is the key; each OS has its own JVM, but the bytecode is the same across platforms."
+      },
+      {
+        "question": "Why do we say Java is object-oriented but 'not 100%' object-oriented?",
+        "correctAnswer": "Because it still has primitive types (int, boolean, etc.) that are not objects.",
+        "incorrectAnswers": [
+          "Because Java doesn’t allow classes at all",
+          "Because Java forces every type to be an array",
+          "Because Java code can only compile to machine instructions"
+        ],
+        "explanation": "Java’s eight primitives exist outside of the object model, so it’s not purely object-based."
+      },
+      {
+        "question": "What is the purpose of the Java Language Specification (JLS)?",
+        "correctAnswer": "It defines the syntax and semantics of Java, ensuring consistency across implementations.",
+        "incorrectAnswers": [
+          "It is a library of open-source frameworks for Java",
+          "It’s a set of encryption rules for secure code",
+          "It’s the official style guide for code formatting"
+        ],
+        "explanation": "The JLS describes the rules of the language, so all compilers/JVMs follow the same standard."
+      },
+      {
+        "question": "Name at least three real-world uses of Java.",
+        "correctAnswer": "Desktop apps, Android mobile apps, enterprise servers, big data, and web-based apps.",
+        "incorrectAnswers": [
+          "Only embedded device drivers in microcontrollers",
+          "Only mainframe system upgrades from the 1970s",
+          "It can’t be used outside of HPC supercomputers"
+        ],
+        "explanation": "Java is extremely flexible: it’s used in Android development, server back ends, and more."
+      },
+      {
+        "question": "What are Java primitives, and why do they exist?",
+        "correctAnswer": "They are built-in basic types (int, boolean, etc.) for efficiency and simplicity in low-level operations.",
+        "incorrectAnswers": [
+          "They are object references that cannot hold data",
+          "They are large classes used exclusively for heavy computations",
+          "They are external libraries installed with the JDK"
+        ],
+        "explanation": "Primitives store simple values directly, improving performance over object wrappers."
+      },
+      {
+        "question": "How does Java manage memory automatically?",
+        "correctAnswer": "Through garbage collection, which reclaims memory for unused objects in the heap.",
+        "incorrectAnswers": [
+          "Through a manual free() function that developers call",
+          "By storing all data in the stack with no references",
+          "By rewriting the entire code in C before runtime"
+        ],
+        "explanation": "The JVM automatically identifies unreachable objects and frees that memory."
+      },
+      {
+        "question": "What does compilation mean in Java’s two-step process?",
+        "correctAnswer": "Source code is compiled into bytecode, and then the JVM interprets/JIT-compiles that bytecode into machine code.",
+        "incorrectAnswers": [
+          "Java code compiles only to JavaScript first",
+          "No compilation is ever done for Java code",
+          "It goes directly to the operating system’s kernel"
+        ],
+        "explanation": "In Java, `.java` -> `.class` bytecode -> execution by JVM, potentially JIT-compiled to native instructions."
+      },
+      {
+        "question": "What is bytecode?",
+        "correctAnswer": "A platform-independent instruction set produced by the Java compiler from .java source files.",
+        "incorrectAnswers": [
+          "A machine-specific assembly language for Windows only",
+          "A text-based configuration file for your IDE",
+          "A special file that runs only on iOS devices"
+        ],
+        "explanation": "Bytecode is the intermediate representation the JVM interprets or compiles at runtime."
+      },
+      {
+        "question": "What is the difference between a compiler and a linker?",
+        "correctAnswer": "A compiler translates source code into object code, while a linker combines modules and assigns real addresses.",
+        "incorrectAnswers": [
+          "A compiler is only used for text formatting and a linker for cryptography",
+          "They are both the same and do not differ in function",
+          "Java uses only linkers; no compilers are involved"
+        ],
+        "explanation": "Many languages use separate steps: compilation to object code, then linking into an executable. In Java, linking is largely handled by class loading."
+      },
+      {
+        "question": "What does the term Just-In-Time (JIT) compiler refer to?",
+        "correctAnswer": "A JVM component that compiles hot spots of bytecode into native machine code for faster performance at runtime.",
+        "incorrectAnswers": [
+          "A translator for Java code into Python scripts",
+          "A mandatory hardware device for cryptographic tasks",
+          "A library that runs after the program is fully terminated"
+        ],
+        "explanation": "The JIT compiles frequently used bytecode paths on the fly, improving performance."
+      },
+      {
+        "question": "Why is the JVM essential to Java’s platform independence?",
+        "correctAnswer": "It abstracts the underlying OS, running the same bytecode on any system that implements a JVM.",
+        "incorrectAnswers": [
+          "It automatically rewrites Java code in different languages",
+          "It only provides a text editor for writing Java programs",
+          "It prevents the developer from accessing the heap"
+        ],
+        "explanation": "Each OS has its own JVM implementation, but they all run identical bytecode the same way."
+      },
+      {
+        "question": "What is the JDK, and what does it contain?",
+        "correctAnswer": "The Java Development Kit, which includes the compiler, tools, and the JRE needed to develop and run Java programs.",
+        "incorrectAnswers": [
+          "A library solely for writing games in Java",
+          "A plugin that allows Java code to run in a browser only",
+          "An operating system designed by Oracle"
+        ],
+        "explanation": "The JDK has development tools like javac, plus a JRE for executing compiled Java code."
+      },
+      {
+        "question": "What is the JRE?",
+        "correctAnswer": "The Java Runtime Environment, containing the JVM and libraries required to run Java bytecode.",
+        "incorrectAnswers": [
+          "An editor and debugger for writing Java apps",
+          "A set of hardware drivers only",
+          "A web server for hosting static websites"
+        ],
+        "explanation": "JRE is needed if you only want to run Java programs, not compile them."
+      },
+      {
+        "question": "How is the JVM different from the JDK?",
+        "correctAnswer": "The JVM executes bytecode, while the JDK contains the compiler and development tools in addition to the JVM.",
+        "incorrectAnswers": [
+          "They are the same entity, just spelled differently",
+          "The JVM is an IDE, and the JDK is a text editor",
+          "The JDK has no relationship with Java bytecode"
+        ],
+        "explanation": "The JVM is the core engine for running code; the JDK includes the JVM plus compilation, debugging, and packaging tools."
+      },
+      {
+        "question": "Can we run Java code without installing the JDK?",
+        "correctAnswer": "Yes. Installing just the JRE is enough to run Java programs, though you can’t compile code with just the JRE.",
+        "incorrectAnswers": [
+          "No, you must always install the JDK to run any Java app",
+          "Yes, you can run Java code without any installation at all",
+          "No, you need the OS kernel patched for Java"
+        ],
+        "explanation": "For execution only, the JRE suffices; the JDK is needed for development (compilation)."
+      },
+      {
+        "question": "Why can Java code “run anywhere” after being compiled?",
+        "correctAnswer": "Because the same bytecode can be interpreted by any JVM, regardless of the underlying platform.",
+        "incorrectAnswers": [
+          "Because Java forcibly recompiles the code for each OS on startup",
+          "Because the Java code is replaced by universal assembly instructions",
+          "Because Java code never actually runs on your hardware"
+        ],
+        "explanation": "Java’s WORA principle is based on the universal nature of bytecode and the JVM."
+      },
+      {
+        "question": "What is a Java class?",
+        "correctAnswer": "A blueprint for creating objects, bundling data (fields) and behaviors (methods).",
+        "incorrectAnswers": [
+          "A temporary function only used in loops",
+          "A hardware device driver in the OS",
+          "A dataset that can’t have methods"
+        ],
+        "explanation": "Classes define properties and methods that form the structure of Java objects."
+      },
+      {
+        "question": "What is a variable in Java?",
+        "correctAnswer": "A named location in memory storing data of a specific type.",
+        "incorrectAnswers": [
+          "A method that’s accessible from all classes",
+          "A special value that never changes",
+          "A type of file used for logging operations"
+        ],
+        "explanation": "Variables hold primitives or object references, identified by a name and a type."
+      },
+      {
+        "question": "What is a method in Java?",
+        "correctAnswer": "A reusable block of code that can be called to perform a task, optionally returning a value.",
+        "incorrectAnswers": [
+          "A comment describing the purpose of a variable",
+          "A hardware interrupt that halts the processor",
+          "An operating system script not related to Java code"
+        ],
+        "explanation": "Methods define functionality or actions an object or class can perform."
+      },
+      {
+        "question": "Why do Java classes frequently have a main method?",
+        "correctAnswer": "main is the program entry point where the JVM starts execution for stand-alone applications.",
+        "incorrectAnswers": [
+          "main is a custom method name recommended by the developer community but not required",
+          "main automatically logs errors without running code",
+          "main is only used to declare global variables"
+        ],
+        "explanation": "When you run a Java app, the JVM looks for `public static void main(String[] args)` as the entry."
+      },
+      {
+        "question": "What naming convention do Java classes follow?",
+        "correctAnswer": "PascalCase, where each word in the class name starts with a capital letter (e.g., MyClass).",
+        "incorrectAnswers": [
+          "camelCase, requiring the first letter to be lowercase",
+          "snake_case, using underscores between words",
+          "ALL_UPPERCASE for all class names"
+        ],
+        "explanation": "By convention, Java classes use uppercase letters to start each word (e.g., ArrayList)."
+      },
+      {
+        "question": "Why are Java String objects immutable?",
+        "correctAnswer": "Once created, their value cannot change; all modifying operations return a new String instance.",
+        "incorrectAnswers": [
+          "Because the compiler enforces unlimited changes to the string",
+          "Because they store data in the stack only",
+          "Because the equals() method prevents assignment"
+        ],
+        "explanation": "String immutability helps with security, caching, and safe sharing among multiple references."
+      },
+      {
+        "question": "Where are string literals stored in Java?",
+        "correctAnswer": "In a special String Pool, a part of the heap.",
+        "incorrectAnswers": [
+          "In CPU registers for direct access",
+          "In the native file system as text files",
+          "In the BIOS memory"
+        ],
+        "explanation": "String literals (“Hello”) go into the String Pool for reuse if identical strings appear again."
+      },
+      {
+        "question": "How do you properly compare two string values in Java?",
+        "correctAnswer": "Use the .equals() method (or .equalsIgnoreCase() if ignoring case).",
+        "incorrectAnswers": [
+          "Use == for all comparisons",
+          "Use a for-loop to check each character manually",
+          "Use the hashCode() method for equality"
+        ],
+        "explanation": "== checks reference equality, while .equals() compares the strings’ actual contents."
+      },
+      {
+        "question": "What does concat() do for strings?",
+        "correctAnswer": "It returns a new String, because the original String is immutable and cannot be modified directly.",
+        "incorrectAnswers": [
+          "It appends characters to the existing String without creating a new object",
+          "It destroys the old String permanently",
+          "It throws an exception if the existing String is too short"
+        ],
+        "explanation": "String operations like concat() produce a new String instance with the combined characters."
+      },
+      {
+        "question": "Why is using StringBuilder often more efficient for repeated string modifications?",
+        "correctAnswer": "Because StringBuilder is mutable, so repeated appends/updates don’t create many new objects.",
+        "incorrectAnswers": [
+          "Because StringBuilder automatically parallelizes the code",
+          "Because StringBuilder is the same as a float array",
+          "Because it’s impossible to append to a String in Java"
+        ],
+        "explanation": "StringBuilder modifies an internal buffer, avoiding the overhead of multiple new Strings."
+      },
+      {
+        "question": "What is the assignment operator in Java?",
+        "correctAnswer": "The single equals sign (=) that assigns a value to a variable.",
+        "incorrectAnswers": [
+          "The double colon (::) used for method references",
+          "The triple equals (===) for type-safe assignment",
+          "An arrow operator (->) from lambda expressions"
+        ],
+        "explanation": "Java uses `=` to put the right-hand value into the variable on the left."
+      },
+      {
+        "question": "How do you increment a variable x by 1 using the postfix operator?",
+        "correctAnswer": "x++",
+        "incorrectAnswers": [
+          "++ x + 1",
+          "x += 2 for a single increment",
+          "x-- for incrementing"
+        ],
+        "explanation": "Postfix x++ returns x then increments it; prefix ++x increments first."
+      },
+      {
+        "question": "Name the logical operators in Java.",
+        "correctAnswer": "&& (AND), || (OR), and ! (NOT).",
+        "incorrectAnswers": [
+          "++, --, and **",
+          "? , : , and ;",
+          "ANDIF, ORIF, and XOR"
+        ],
+        "explanation": "These boolean operators combine or invert true/false expressions."
+      },
+      {
+        "question": "Which operator checks for equality of numeric values in Java?",
+        "correctAnswer": "The double equals == operator.",
+        "incorrectAnswers": [
+          "The single equals operator =",
+          "The triple equals ===",
+          "The dot equals .equals() method"
+        ],
+        "explanation": "For primitives, `==` compares numeric values; for objects, `==` checks reference identity."
+      },
+      {
+        "question": "What is the ternary operator’s format in Java?",
+        "correctAnswer": "condition ? expressionIfTrue : expressionIfFalse",
+        "incorrectAnswers": [
+          "condition !! expressionIfTrue :: expressionIfFalse",
+          "condition ?= expressionIfTrue ?= expressionIfFalse",
+          "(expressionIfTrue || expressionIfFalse) if condition"
+        ],
+        "explanation": "The ternary operator is a concise inline if-else used in expressions."
+      },
+      {
+        "question": "How does an if statement work in Java?",
+        "correctAnswer": "It evaluates a boolean condition and executes code if it’s true; else/else if handle alternatives.",
+        "incorrectAnswers": [
+          "It automatically repeats until the condition is false",
+          "It only works for numeric comparisons, not booleans",
+          "It’s only useful inside constructors"
+        ],
+        "explanation": "if checks a condition; additional else/else if blocks handle other scenarios."
+      },
+      {
+        "question": "When is a switch statement more suitable than multiple if-else blocks?",
+        "correctAnswer": "When comparing one variable against many discrete values, improving readability.",
+        "incorrectAnswers": [
+          "When you need to handle parallel threads inside a single line",
+          "When your conditions must be complex boolean expressions",
+          "When you don’t know the variable in advance"
+        ],
+        "explanation": "switch is cleaner for enumerating distinct cases of a single variable."
+      },
+      {
+        "question": "What happens if you forget a break statement in a switch case?",
+        "correctAnswer": "Control falls through to the next case, executing its code too.",
+        "incorrectAnswers": [
+          "Java automatically inserts a break at runtime",
+          "The switch statement crashes the program",
+          "The next case is skipped, effectively disabling it"
+        ],
+        "explanation": "Without break, execution continues down into the subsequent case(s)."
+      },
+      {
+        "question": "Compare while vs. do-while loops in Java.",
+        "correctAnswer": "while checks the condition first and may not run at all; do-while runs at least once before checking.",
+        "incorrectAnswers": [
+          "They are identical, just spelled differently",
+          "do-while loops can never terminate",
+          "while loops can only handle numeric conditions"
+        ],
+        "explanation": "A do-while ensures the body executes once; a while loop might skip entirely if false initially."
+      },
+      {
+        "question": "How does the for loop differ from the enhanced for-each loop?",
+        "correctAnswer": "A traditional for loop lets you manage an index; the for-each loop simplifies iteration over arrays/collections without direct indexing.",
+        "incorrectAnswers": [
+          "They are the same; Java has no difference between them",
+          "The for-each loop always modifies the original array",
+          "The for-each loop only runs once per program execution"
+        ],
+        "explanation": "A standard for loop includes an initializer, condition, and increment. The enhanced for loop is simpler but less flexible."
+      },
+      {
+        "question": "What does the break keyword do in a loop?",
+        "correctAnswer": "It terminates the loop immediately, skipping remaining iterations.",
+        "incorrectAnswers": [
+          "It restarts the loop from the beginning",
+          "It swaps the loop body with the next method",
+          "It only works in if statements, not loops"
+        ],
+        "explanation": "break ends the closest loop or switch statement, often used to exit early."
+      },
+      {
+        "question": "What does the continue keyword do in a loop?",
+        "correctAnswer": "It skips the remaining statements in the current iteration and goes to the next iteration.",
+        "incorrectAnswers": [
+          "It stops the loop entirely",
+          "It adds an extra iteration at the loop’s end",
+          "It jumps out of all nested loops at once"
+        ],
+        "explanation": "continue only ends the current iteration, causing the loop to check its condition again for the next iteration."
+      },
+      {
+        "question": "Why might labels be used with break or continue in Java?",
+        "correctAnswer": "They allow you to break or continue an outer loop in nested loop scenarios.",
+        "incorrectAnswers": [
+          "They attach user interface labels to variables",
+          "They rename the current method for debugging",
+          "They force the JVM to skip stack frames"
+        ],
+        "explanation": "By labeling a loop, you can specifically break/continue that loop, not just the innermost one."
+      },
+      {
+        "question": "What is a package in Java?",
+        "correctAnswer": "A grouping of related classes, interfaces, and enums in a hierarchical structure.",
+        "incorrectAnswers": [
+          "A compiled file that runs outside the JVM",
+          "A special final variable for encryption",
+          "A single method containing all code"
+        ],
+        "explanation": "Packages help organize code, prevent naming conflicts, and control visibility."
+      },
+      {
+        "question": "Where must the package declaration appear in a Java file?",
+        "correctAnswer": "It must be the first non-commented line in the file.",
+        "incorrectAnswers": [
+          "At the very bottom after all imports",
+          "It can be anywhere, including inside a method",
+          "Java files cannot declare a package at all"
+        ],
+        "explanation": "If you use a package, the statement `package ...;` must come before imports or class definitions."
+      },
+      {
+        "question": "What is the default package if none is declared?",
+        "correctAnswer": "The unnamed package, which is a fallback but cannot be imported from other packages.",
+        "incorrectAnswers": [
+          "java.lang, included automatically",
+          "The system kernel package for OS-level code",
+          "No default: the code won’t compile without a package"
+        ],
+        "explanation": "If you omit `package`, the class belongs to the default/unnamed package, with limited accessibility."
+      },
+      {
+        "question": "How do imports work in Java?",
+        "correctAnswer": "They let you reference classes from other packages without using the full package path every time.",
+        "incorrectAnswers": [
+          "They copy entire source files into your class",
+          "They only work if the classes are in the same directory",
+          "They rename the classes for local usage"
+        ],
+        "explanation": "An import statement shortens references to external classes (e.g., import java.util.List)."
+      },
+      {
+        "question": "Why does java.lang need no explicit import?",
+        "correctAnswer": "Because it’s implicitly imported by default, containing core classes like String, Math, etc.",
+        "incorrectAnswers": [
+          "Because it’s empty and has no usable classes",
+          "Because only IntelliJ can import it automatically",
+          "Because it’s a hidden internal package for the OS"
+        ],
+        "explanation": "java.lang is fundamental to Java, so it’s always available without an import statement."
+      },
+      {
+        "question": "What does the static keyword signify for a variable?",
+        "correctAnswer": "That it belongs to the class itself rather than any instance of the class.",
+        "incorrectAnswers": [
+          "That it’s an immutable constant that can never change",
+          "That it’s local to a single method only",
+          "That the variable is always private"
+        ],
+        "explanation": "A static variable is shared by all instances; you can access it via ClassName.variable."
+      },
+      {
+        "question": "What does it mean for a method to be static?",
+        "correctAnswer": "It can be invoked without an instance; it’s associated with the class rather than with objects.",
+        "incorrectAnswers": [
+          "It must be overridden by all subclasses",
+          "It can only be called once in a program’s lifecycle",
+          "It has direct access to all instance variables"
+        ],
+        "explanation": "Static methods have no implicit this reference, so they can’t use instance data unless an object is passed in."
+      },
+      {
+        "question": "How do you call a static method?",
+        "correctAnswer": "By using the class name, e.g. MyClass.myStaticMethod().",
+        "incorrectAnswers": [
+          "By referencing an instance like myObj.myStaticMethod() exclusively",
+          "By using new MyClass().myStaticMethod() every time",
+          "By specifying the OS’s environment variables"
+        ],
+        "explanation": "A static method is typically referenced with ClassName.methodName, though instance calls compile but are discouraged."
+      },
+      {
+        "question": "Why might a static variable often be combined with final?",
+        "correctAnswer": "To create a true constant that cannot be reassigned, like public static final double PI = 3.14159.",
+        "incorrectAnswers": [
+          "Because static final variables can be changed by any developer user at runtime",
+          "Because final prevents the JVM from loading the class",
+          "Because that combination indicates the variable is local method scope only"
+        ],
+        "explanation": "static final means one shared constant value across all usage."
+      },
+      {
+        "question": "Can a static method access non-static (instance) fields directly?",
+        "correctAnswer": "No, because static methods have no instance context; they need an object reference for instance fields.",
+        "incorrectAnswers": [
+          "Yes, static methods automatically know about all instance fields",
+          "Yes, but only for private fields",
+          "Yes, if you declare main() after the instance fields"
+        ],
+        "explanation": "Static means class-level, so it does not know which instance to use for instance fields unless you pass one in."
+      },
+      {
+        "question": "What does 'instance scope' mean for a variable?",
+        "correctAnswer": "It’s a variable tied to a particular object, so each object has its own copy.",
+        "incorrectAnswers": [
+          "It’s a variable shared across all objects of the same class",
+          "It’s a variable that can’t be changed after being declared",
+          "It’s a variable used only inside a switch statement"
+        ],
+        "explanation": "Instance-scoped variables differ per object. Changing one object’s variable doesn’t affect others."
+      },
+      {
+        "question": "How is 'class scope' (static scope) different from instance scope?",
+        "correctAnswer": "A static (class) variable is shared among all instances, meaning changes affect every instance.",
+        "incorrectAnswers": [
+          "They are identical except for naming conventions",
+          "Static scope means each thread sees a different value",
+          "It automatically resets the variable on each method call"
+        ],
+        "explanation": "Static variables belong to the class as a whole, not to individual instances."
+      },
+      {
+        "question": "What is 'method scope'?",
+        "correctAnswer": "Variables declared inside a method exist only during that method’s execution.",
+        "incorrectAnswers": [
+          "Variables that are static final across the entire application",
+          "Variables that can be shared between two unrelated classes",
+          "Variables that automatically become instance fields"
+        ],
+        "explanation": "Method-scoped variables vanish after the method returns (stack frame is popped)."
+      },
+      {
+        "question": "What is 'block scope'?",
+        "correctAnswer": "Variables declared inside a block (e.g., within braces) are accessible only within that block.",
+        "incorrectAnswers": [
+          "Variables that a block of threads can share",
+          "Variables stored in the OS file system",
+          "Variables that must be declared at class level"
+        ],
+        "explanation": "Any variable declared in { } of an if/loop is not visible outside that block."
+      },
+      {
+        "question": "Why is scope important?",
+        "correctAnswer": "It controls variable visibility and lifetime, preventing unintended access and name conflicts.",
+        "incorrectAnswers": [
+          "It forces all variables to be public",
+          "It is irrelevant to Java code organization",
+          "It doubles memory usage for each variable"
+        ],
+        "explanation": "Proper scope usage ensures modular, maintainable, and bug-free code with minimal conflicts."
+      },
+      {
+        "question": "What is an array in Java?",
+        "correctAnswer": "A contiguous block of memory for storing elements of the same type, accessed by index.",
+        "incorrectAnswers": [
+          "A dynamic list that can change size arbitrarily",
+          "A text file storing configurations",
+          "A single integer that is always 2D"
+        ],
+        "explanation": "Arrays have a fixed length declared at creation; indexing starts at zero."
+      },
+      {
+        "question": "How do you declare and instantiate an array in Java?",
+        "correctAnswer": "int[] nums = new int[5]; or int nums[] = {1,2,3,4,5};",
+        "incorrectAnswers": [
+          "array nums = [5 integers];",
+          "int nums = new array(5);",
+          "No syntax is required; arrays are always present"
+        ],
+        "explanation": "Use brackets next to the type or variable, specify size or initial values in curly braces."
+      },
+      {
+        "question": "How do you get the length of a Java array?",
+        "correctAnswer": "Use the .length property (e.g., nums.length).",
+        "incorrectAnswers": [
+          "Call nums.length() as a method",
+          "Use the # operator like #nums",
+          "Java arrays do not store their length"
+        ],
+        "explanation": "Arrays have a built-in .length field to report their fixed size."
+      },
+      {
+        "question": "What happens if you access an index out of the array’s bounds?",
+        "correctAnswer": "A java.lang.ArrayIndexOutOfBoundsException is thrown.",
+        "incorrectAnswers": [
+          "Java automatically resizes the array",
+          "The program quietly skips the access",
+          "Nothing special; it just wraps around to index 0"
+        ],
+        "explanation": "Java does runtime bounds checking on array indices, throwing an exception if invalid."
+      },
+      {
+        "question": "Is an array an object in Java?",
+        "correctAnswer": "Yes. Every Java array is an object, with a .length field and other properties.",
+        "incorrectAnswers": [
+          "No, arrays are stored only in the stack",
+          "No, arrays are purely compile-time constructs",
+          "Only multi-dimensional arrays are objects"
+        ],
+        "explanation": "Even though there’s no named ‘Array’ class, arrays are still full-fledged objects in the JVM."
+      },
+      {
+        "question": "What is casting in Java?",
+        "correctAnswer": "Converting a value of one type to another, such as (int) 3.14.",
+        "incorrectAnswers": [
+          "Sending a Java object to a remote database",
+          "Debugging the application with breakpoints",
+          "Combining multiple classes into a single jar"
+        ],
+        "explanation": "Casting allows you to convert numeric types or cast objects along an inheritance hierarchy."
+      },
+      {
+        "question": "What is the difference between implicit and explicit casting for primitives?",
+        "correctAnswer": "Implicit (widening) is automatic (e.g., int->long), while explicit (narrowing) requires a cast (e.g., float->int).",
+        "incorrectAnswers": [
+          "They differ only in runtime performance, not syntax",
+          "Explicit casting is never allowed in Java",
+          "Implicit casting only works for reference types"
+        ],
+        "explanation": "Widening conversions are safe and automatic. Narrowing might lose data, so Java requires an explicit cast."
+      },
+      {
+        "question": "What happens if a narrowing cast loses information?",
+        "correctAnswer": "The result is truncated or otherwise changed to fit the target type’s range.",
+        "incorrectAnswers": [
+          "Java throws a compile-time error instead",
+          "The variable becomes null",
+          "The cast is ignored, preserving the old value"
+        ],
+        "explanation": "Casting a larger range to a smaller one can cause overflow, underflow, or truncation."
+      },
+      {
+        "question": "Can you cast any class reference to any other class reference?",
+        "correctAnswer": "Only if they have an inheritance relationship; otherwise, a ClassCastException occurs at runtime.",
+        "incorrectAnswers": [
+          "Yes, because Java forcibly transforms them",
+          "Yes, but only for string-based references",
+          "No, Java simply returns zero on invalid casts"
+        ],
+        "explanation": "Object references must be in the same inheritance tree for a cast to be valid."
+      },
+      {
+        "question": "What is instanceof used for?",
+        "correctAnswer": "Checking at runtime if an object is an instance of a certain class/interface to ensure safe casting.",
+        "incorrectAnswers": [
+          "Ensuring that two variables are both static",
+          "Comparing primitive int values for equality",
+          "Encrypting the class bytecode during compilation"
+        ],
+        "explanation": "instanceof helps avoid ClassCastException by verifying the object’s actual type first."
+      },
+      {
+        "question": "What is Git?",
+        "correctAnswer": "A distributed version control system that tracks changes and coordinates work among developers.",
+        "incorrectAnswers": [
+          "A programming language competing with Java",
+          "An operating system shell used in embedded systems",
+          "A database for storing only binary files"
+        ],
+        "explanation": "Git maintains file history, supports branching, merging, and decentralized collaboration."
+      },
+      {
+        "question": "What is the purpose of git commit?",
+        "correctAnswer": "It records staged changes in the local repository with a message describing the changes.",
+        "incorrectAnswers": [
+          "It publishes your code to a remote repository automatically",
+          "It deletes untracked files from the project",
+          "It renames the master branch to main"
+        ],
+        "explanation": "git commit saves a snapshot of tracked files, associating a commit ID and message."
+      },
+      {
+        "question": "What does git push do?",
+        "correctAnswer": "It sends local commits to a remote repository so others can access them.",
+        "incorrectAnswers": [
+          "It downloads changes from the remote repository",
+          "It merges remote branches into local by default",
+          "It reverts your last commit to a stable version"
+        ],
+        "explanation": "Push updates the remote branch with your local commits."
+      },
+      {
+        "question": "Why use branching in Git?",
+        "correctAnswer": "To develop features/fixes in isolation and merge them back without disturbing the main code until ready.",
+        "incorrectAnswers": [
+          "To store binary large objects in memory",
+          "To rename all your commits automatically",
+          "To permanently disconnect from the remote repository"
+        ],
+        "explanation": "Branches let you experiment or build features without affecting the stable main branch."
+      },
+      {
+        "question": "What is git pull?",
+        "correctAnswer": "It retrieves changes from a remote branch and merges them into your local branch.",
+        "incorrectAnswers": [
+          "It discards local commits to match the remote’s history",
+          "It commits untracked files automatically",
+          "It changes ownership of the repository to a new user"
+        ],
+        "explanation": "Pull is effectively 'fetch + merge' to sync local code with remote updates."
+      },
+      {
+        "question": "What is HTTP?",
+        "correctAnswer": "The Hypertext Transfer Protocol, a stateless application-layer protocol for data exchange on the web.",
+        "incorrectAnswers": [
+          "A library for reading image files in Java",
+          "A server-side database for user credentials",
+          "A programming language compiled by the JVM"
+        ],
+        "explanation": "HTTP is the fundamental protocol enabling browsers to request resources from servers."
+      },
+      {
+        "question": "What does it mean that HTTP is stateless?",
+        "correctAnswer": "Each request is independent; the server does not maintain information about past requests by default.",
+        "incorrectAnswers": [
+          "HTTP can only handle numeric data",
+          "HTTP maintains user sessions automatically for days",
+          "HTTP automatically remembers your last request's data"
+        ],
+        "explanation": "Without cookies or session mechanisms, the server sees each request fresh."
+      },
+      {
+        "question": "Name one key principle of RESTful APIs.",
+        "correctAnswer": "They use resource-based URLs and standard HTTP methods (GET, POST, etc.) to perform CRUD operations.",
+        "incorrectAnswers": [
+          "They require a custom binary protocol for data transport",
+          "They must store all state in the client’s hardware",
+          "They only support plain text with no JSON or XML"
+        ],
+        "explanation": "REST emphasizes uniform resource identifiers (URIs) and the stateless use of HTTP verbs."
+      },
+      {
+        "question": "Which HTTP method is typically used to retrieve data from a server?",
+        "correctAnswer": "GET",
+        "incorrectAnswers": [
+          "POST",
+          "DELETE",
+          "PUSH"
+        ],
+        "explanation": "GET is for fetching (reading) data without causing side effects on the server."
+      },
+      {
+        "question": "Why is JSON often used in REST?",
+        "correctAnswer": "Because it’s lightweight, language-independent, and easy to parse, making data exchange simpler.",
+        "incorrectAnswers": [
+          "Because JSON is an encrypted format unreadable by browsers",
+          "Because JSON is a compiled file that runs in the JVM",
+          "Because only JSON is supported by all hardware devices"
+        ],
+        "explanation": "JSON (JavaScript Object Notation) has become a de facto standard for web APIs due to its simplicity."
+      },
+      {
+        "question": "What is inheritance in Java?",
+        "correctAnswer": "A mechanism by which a subclass acquires properties and behaviors from a superclass.",
+        "incorrectAnswers": [
+          "A process that copies all .java files to a new location",
+          "A style rule for reformatting code in your IDE",
+          "A method to distribute code to different developers"
+        ],
+        "explanation": "Inheritance enables a child class to reuse and extend the parent class’s fields and methods."
+      },
+      {
+        "question": "Why is exception handling important?",
+        "correctAnswer": "It lets you manage runtime errors gracefully so the program doesn’t crash unexpectedly.",
+        "incorrectAnswers": [
+          "It stops the compiler from generating bytecode",
+          "It auto-corrects syntax errors in the source file",
+          "It only logs messages without changing behavior"
+        ],
+        "explanation": "Java’s try-catch-finally approach provides structured error recovery or cleanup."
+      },
+      {
+        "question": "What is an interface in Java?",
+        "correctAnswer": "A contract specifying method signatures that implementing classes must define.",
+        "incorrectAnswers": [
+          "A blueprint for only static methods and variables",
+          "A class that cannot have any methods",
+          "An enum type for listing numeric constants"
+        ],
+        "explanation": "Interfaces define method prototypes; classes implementing the interface provide the method bodies."
+      },
+      {
+        "question": "What is the difference between ArrayList and a Java array?",
+        "correctAnswer": "ArrayList is a dynamic collection that can grow/shrink, while an array has a fixed size once created.",
+        "incorrectAnswers": [
+          "ArrayList is stored in the stack, arrays are stored in the heap",
+          "They are the same except ArrayList uses booleans only",
+          "ArrayList can’t store objects, only primitives"
+        ],
+        "explanation": "ArrayList is part of the Collections Framework; you can add or remove elements at will."
+      },
+      {
+        "question": "What is the Collections Framework?",
+        "correctAnswer": "A set of classes and interfaces (List, Set, Map, etc.) that provide data structures and algorithms.",
+        "incorrectAnswers": [
+          "A JVM optimization tool for managing memory",
+          "A specialized debug mode for concurrency issues",
+          "A language feature that only handles HTTP requests"
+        ],
+        "explanation": "The Collections Framework includes implementations of common data structures, like ArrayList, HashSet, HashMap, etc."
+      },
+      {
+        "question": "What is SQL used for?",
+        "correctAnswer": "Structured Query Language is used to store, retrieve, and manage data in relational databases.",
+        "incorrectAnswers": [
+          "A UI design language for styling front ends",
+          "A multi-threading language for concurrency",
+          "A tool to create compiled Java bytecode"
+        ],
+        "explanation": "SQL focuses on operations like SELECT, INSERT, UPDATE, DELETE for relational data."
+      },
+      {
+        "question": "What is a primary key in a relational database?",
+        "correctAnswer": "A unique identifier for rows that cannot be null, ensuring each row is uniquely identifiable.",
+        "incorrectAnswers": [
+          "A special column that stores only images",
+          "A random integer that changes each time data is retrieved",
+          "A table-wide setting that restricts the entire table to one row"
+        ],
+        "explanation": "Primary keys guarantee uniqueness, typically used for indexing and referencing rows."
+      },
+      {
+        "question": "How do you retrieve all rows from a table in SQL?",
+        "correctAnswer": "Use SELECT * FROM tableName;",
+        "incorrectAnswers": [
+          "Use FETCH ROWS FROM tableName;",
+          "Use GET ALL tableName;",
+          "Use ls tableName;"
+        ],
+        "explanation": "`SELECT *` means select all columns for all rows in that table."
+      },
+      {
+        "question": "What is the difference between INNER JOIN and LEFT JOIN?",
+        "correctAnswer": "INNER JOIN returns matching rows from both tables, while LEFT JOIN includes all rows from the left table plus matching from the right.",
+        "incorrectAnswers": [
+          "There is no difference; they are synonyms",
+          "LEFT JOIN only compares the first column, while INNER JOIN compares all columns",
+          "INNER JOIN always returns every row from both tables"
+        ],
+        "explanation": "LEFT JOIN is also called LEFT OUTER JOIN, preserving unmatched rows from the left table."
+      },
+      {
+        "question": "Why is normalization often applied to database schemas?",
+        "correctAnswer": "To reduce redundancy and improve data integrity by splitting data into well-structured tables.",
+        "incorrectAnswers": [
+          "To prevent the use of foreign keys or constraints",
+          "To store all data in one giant table without duplication",
+          "To only allow numeric values in every column"
+        ],
+        "explanation": "Normalization organizes data to minimize duplicates and anomalies (insert, update, delete)."
+      }
+    ]
+  }
+  
